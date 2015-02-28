@@ -202,8 +202,8 @@
     // Pass the selected object to the new view controller.
     
     FriendsEventsTableViewController *fe = [segue destinationViewController];
-   // User *u = self.currentUser.friends[self.tableView.indexPathForSelectedRow.row];
-   // fe.events = u.events;
+    User *u = self.currentUser.friends[self.tableView.indexPathForSelectedRow.row];
+    fe.events = u.events;
  
 }
 

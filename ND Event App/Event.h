@@ -11,6 +11,7 @@
 #import <MapKit/MapKit.h>
 #import <Parse/PFSubclassing.h>
 #import <Parse/PFObject.h>
+#import <Parse/PFGeoPoint.h>
 
 @interface Event : PFObject<PFSubclassing>
 
@@ -22,7 +23,7 @@ enum {
 +(NSString*)parseClassName;
 @property NSString *eventTitle;
 @property User *host;
-@property CLLocation *location;
+@property PFGeoPoint *location;
 @property NSString *eventDescription;
 @property NSDate *start;
 @property NSDate *end;

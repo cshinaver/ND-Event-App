@@ -31,7 +31,7 @@
     if(self) {
         self.eventTitle = eventTitle;
         self.eventDescription = eventDescription;
-        self.location = location;
+        self.location = [PFGeoPoint geoPointWithLocation:location];
         self.start = start;
         self.end = end;
     }
