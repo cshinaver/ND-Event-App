@@ -29,32 +29,7 @@
     // Set delegate
     self.mapView.delegate = self;
     
-    // Allocate space to array
-    
-    self.currentUser = [[User alloc] init];
-    self.currentUser.fullName = @"Charles Shinaver";
-    User *user1 = [[User alloc] init];
-    user1.username = @"user1";
-    user1.fullName = @"Joe Moran";
-    self.currentUser.friends = [[NSArray alloc] initWithObjects:user1, nil];
-    Event *event1 = [[Event alloc] init];
-    event1.eventTitle = @"Party in Dillon";
-    event1.eventDescription = @"A fun little get together in Dillon ;)";
-    event1.location = [PFGeoPoint geoPointWithLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733]];
-    event1.invitees = [[NSArray alloc] initWithObjects:self.currentUser.fullName, nil];
-    NSCalendar *calendar = [[NSCalendar alloc] init];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setYear: 2015];
-    [components setMonth: 5];
-    [components setDay: 22];
-    [components setHour:20];
-    [components setMinute:0];
-    event1.start = [calendar dateFromComponents:components];
-    [components setHour:23];
-    [components setMinute:0];
-    event1.end = [calendar dateFromComponents:components];
-    user1.events = [NSMutableArray arrayWithObjects: event1, nil];
-    self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
+    self.currentUser = [User getUser:@"Charles"];
     
 }
 
