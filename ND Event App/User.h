@@ -12,13 +12,10 @@
 #import <Parse/PFUser.h>
 
 @interface User : PFUser<PFSubclassing>
-//+(NSString*)parseClassName;
 
-
-//@property (retain)NSString *username;
-@property (retain)NSString *fullName;
-@property (retain)NSArray *events;
-@property (retain)NSArray *friends;
+@property (retain) NSString *fullName;
+@property (retain) NSArray *events;
+@property (retain) NSArray *friends;
 
 
 @end
