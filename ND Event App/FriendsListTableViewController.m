@@ -7,6 +7,8 @@
 //
 
 #import "FriendsListTableViewController.h"
+#import "User.h"
+#import "Event.h"
 
 @interface FriendsListTableViewController ()
 
@@ -17,8 +19,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-    
+    User *currentUser = [[User alloc] init];
+    User *user1 = [[User alloc] init];
+    currentUser.friends = [NSArray arrayWithObjects: user1, nil];
+    user1.username = @"user1";
+    user1.fullName = @"Joe Moran";
+    Event *event1 = [[Event alloc] init];
+    event1.eventTitle = @"Party in Dillon";
+    event1.eventDescription = @"A fun little get together in Dillon ;)";
+    event1.location = @"Dillon. duh";
+    NSCalendar *calendar = [[NSCalendar alloc] init];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setYear: 2015];
+    [components setMonth: 5];
+    [components setDay: 22];
+    [components setHour:20];
+    [components setMinute:0];
+    event1.start = [calendar dateFromComponents:components];
+    [components setHour:23];
+    [components setMinute:0];
+    event1.end = [calendar dateFromComponents:components];
+    user1.events = [NSArray arrayWithObjects: event1, nil];
     
 }
 
