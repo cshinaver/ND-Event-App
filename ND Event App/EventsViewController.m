@@ -23,7 +23,7 @@
 
     self.eventTitle.text = self.event.eventTitle;
     
-    self.host.text = [NSString stringWithFormat:@"Hosted by: %@", self.event.host.fullName];
+    self.host.text = [NSString stringWithFormat:@"Hosted by: %@", self.event.host.username];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"M/d/y h:mm a"];

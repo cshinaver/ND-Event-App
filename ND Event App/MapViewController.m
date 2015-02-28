@@ -31,10 +31,7 @@
     // Set delegate
     self.mapView.delegate = self;
     
-    // Allocate space to array
-    
-    Event *event1 = [[Event alloc] initWithEventTitle:@"Dillon Party" andDescription:@"Party in dillon" andLocation:[[CLLocation alloc] initWithLatitude:41.700278 longitude:-86.230733 ]  andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Mary"] andInvitees:[NSArray arrayWithObjects: [User getUser:@"Charles"].username, nil] andViewStatus:PRIVATE];
-                     [self.currentUser.events addObject:event1];
+    self.currentUser = [User getUser:@"Charles"];
     
 }
 
