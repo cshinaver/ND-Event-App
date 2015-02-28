@@ -64,5 +64,14 @@
     
 }
 
++ (NSArray *)getAllUsers
+{
+    PFQuery *query = [PFUser query];
+    NSArray *users = [query findObjects];
+    
+    return users;
+    
+}
+
 @end
 
