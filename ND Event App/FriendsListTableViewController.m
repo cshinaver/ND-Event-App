@@ -23,54 +23,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-    //User *user2 = (User *)[User object];
-    //user2.username = @"Mary";
-    //user2.password = @"banana";
-    //user2.email = @"bshinaver@gmail.com";
-    //[user2 signUp];
-    //
-    //User *user3 = (User *)[User object];
-    //user3.username = @"Anna";
-    //user3.password = @"banana";
-    //user3.email = @"cshinaver@gmail.com";
-    //[user3 signUp];
+
+    User *user1 = (User *)[User object];
+    self.currentUser = user1;
+    self.currentUser.username = @"Charles";
+    self.currentUser.password = @"banana";
+    self.currentUser.email = @"gshinaver@gmail.com";
     
-//    User *user1 = (User *)[User object];
-//    user1.username = @"Charles";
-//    user1.password = @"banana";
-//    user1.email = @"gshinaver@gmail.com";
-//    
-//	PFQuery *query = [User query];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            // The find succeeded.
-//            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-//            // Do something with the found objects
-//            for (PFObject *object in objects) {
-//                [user1.friends addObject:object];
-//            }
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    }];
-//    
-//
-//    [user1 signUp];
-	
-  
-	//PFObject *User= [PFObject objectWithClassName:@"User"];
-	//User[@"fullName"] = @"Anna";
-//	//User[@"events"] = @[@"event1", @"event2"];
-//	//User2[@"friends"] = @[@"name1", @"name2"];
+	PFQuery *query = [User query];
+    self.currentUser.friends = [query findObjects];
 
-//	[query getObjectInBackgroundWithId:@"xWMyZ4YEGZ" block:^(PFObject *User, NSError *error) {
-//		// Do something with the returned PFObject in the gameScore variable.
-//		NSLog(@"%@", User);
-//	}];
-//	
-
+    [self.currentUser signUp];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,23 +48,23 @@
     return 1;
 }
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    // Return the number of rows in the section.
-//    return self.currentUser.friends.count;
-//}
-//
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-//    
-//    // Configure the cell...
-//    User *u = self.currentUser.friends[indexPath.row];
-//    
-//    cell.textLabel.text = u.username;
-//    
-//    return cell;
-//}
-//
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.currentUser.friends.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    // Configure the cell...
+    User *u = self.currentUser.friends[indexPath.row];
+    
+    cell.textLabel.text = u.username;
+    
+    return cell;
+}
+
 
 /*
 // Override to support conditional editing of the table view.

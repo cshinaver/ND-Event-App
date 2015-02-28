@@ -19,9 +19,6 @@
 
 + (User *)currentUser;
 - (void)signUp;
-
-
++ (User *)getUser:(NSString *)username;
 
 @end
-
-// Armor.m

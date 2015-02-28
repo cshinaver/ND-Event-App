@@ -15,7 +15,8 @@
 @dynamic location;
 @dynamic start;
 @dynamic  end;
-@dynamic host, invitees, viewStatus;
+@dynamic host, invitees;
+@dynamic viewStatus;
 
 + (void)load {
 	[self registerSubclass];
@@ -25,7 +26,7 @@
 	return @"Event";
 }
 
-- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus
 {
     self = [super init];
     if(self) {
@@ -34,6 +35,9 @@
         self.location = [PFGeoPoint geoPointWithLocation:location];
         self.start = start;
         self.end = end;
+        self.host = host;
+        self.invitees = invitees;
+        self.viewStatus = viewStatus;
     }
     return self;
 }

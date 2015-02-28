@@ -27,9 +27,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Dummy events
-    Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date]];
-    Event *e2 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date]];
-    Event *e3 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date]];
+    Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
+    Event *e2 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
+    Event *e3 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
     
 	[e1 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 		if (succeeded) {
