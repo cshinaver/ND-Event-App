@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "User.h"
+#import "Event.h"
 
 @interface AppDelegate ()
 
@@ -17,28 +19,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+     //Override point for customization after application launch.
+	[Parse enableLocalDatastore];
 	
-//		[Parse enableLocalDatastore];
-//
-//		// Initialize Parse.
-//		[Parse setApplicationId:@"zW6l6Bv8Xevi1ZQq5zNyoqpjDRIVJcyYJqhL7a8V"
-//					  clientKey:@"GCK90Ctew17Nhj02fJM0bOkXen9MIo9GiPDrpcHI"];
-//		
-//		// [Optional] Track statistics around application opens.
-//		[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-//	
-//		PFObject *user = [PFObject objectWithClassName:@"user];
-//		user[@"Ieves"] = @1337;
-//		gameScore[@"friends"] = @"Sean Plott";
-//		gameScore[@"cheatMode"] = @NO;
-//		[gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//  if (succeeded) {
-//	  // The object has been saved.
-//  } else {
-//	  // There was a problem, check error.description
-//  }
-//	}];
+	// Initialize Parse.
+	[Parse setApplicationId:@"zW6l6Bv8Xevi1ZQq5zNyoqpjDRIVJcyYJqhL7a8V"
+				  clientKey:@"GCK90Ctew17Nhj02fJM0bOkXen9MIo9GiPDrpcHI"];
+	// [Optional] Track statistics around application opens.
+	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [User registerSubclass];
+    [Event registerSubclass];
 	
     return YES;
 }

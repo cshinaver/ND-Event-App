@@ -9,24 +9,29 @@
 #import<Foundation/Foundation.h>
 #import "User.h"
 #import <MapKit/MapKit.h>
+#import <Parse/PFSubclassing.h>
+#import <Parse/PFObject.h>
+#import <Parse/PFGeoPoint.h>
 
-@interface Event : NSObject
+@interface Event : PFObject<PFSubclassing>
 
 enum {
     PRIVATE,
     PUBLIC
 };
 
++(NSString*)parseClassName;
 @property NSString *eventTitle;
-@property User *host;
-@property CLLocation *location;
 @property NSString *eventDescription;
+@property PFGeoPoint *location;
 @property NSDate *start;
 @property NSDate *end;
+@property User *host;
 @property NSArray *invitees;
 @property int viewStatus;
 
-- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end;
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus;
 
+-(void)saveToDatabase;
 @end
 

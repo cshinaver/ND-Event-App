@@ -42,7 +42,7 @@
     Event *event1 = [[Event alloc] init];
     event1.eventTitle = @"Party in Dillon";
     event1.eventDescription = @"A fun little get together in Dillon ;)";
-    event1.location = [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733];
+    event1.location = [PFGeoPoint geoPointWithLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733]];
     event1.invitees = [[NSArray alloc] initWithObjects:self.currentUser.fullName, nil];
     NSCalendar *calendar = [[NSCalendar alloc] init];
     NSDateComponents *components = [[NSDateComponents alloc] init];
@@ -83,7 +83,7 @@
     // Create points for each event
     for (Event *e in events)
     {
-        [self createAnnotationWithCoordinate:[e.location coordinate] andTitle:e.eventTitle andSubtitle:e.eventDescription];
+        [self createAnnotationWithCoordinate:[[[CLLocation alloc] initWithLatitude:e.location.latitude longitude:e.location.longitude] coordinate] andTitle:e.eventTitle andSubtitle:e.eventDescription];
     }
 }
 

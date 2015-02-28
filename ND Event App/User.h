@@ -7,12 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/PFSubclassing.h>
+#import <Parse/PFObject.h>
+#import <Parse/PFUser.h>
 
-@interface User : NSObject
+@interface User : PFUser<PFSubclassing>
 
-@property NSString *username;
-@property NSString *fullName;
-@property NSMutableArray *events;
-@property NSArray *friends;
+@property (retain) NSString *fullName;
+@property (retain) NSMutableArray *events;
+@property (retain) NSMutableArray *friends;
+
++ (User *)currentUser;
+- (void)signUp;
+- (void)saveToDatabase;
++ (User *)getUser:(NSString *)username;
 
 @end

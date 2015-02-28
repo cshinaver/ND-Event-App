@@ -10,6 +10,10 @@
 #import "User.h"
 #import "Event.h"
 #import "FriendsEventsTableViewController.h"
+#import <Parse/Parse.h>
+#import <Parse/PFSubclassing.h>
+
+#import <Parse/PFObject.h>
 
 @interface FriendsListTableViewController ()
 
@@ -19,39 +23,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.currentUser = [[User alloc] init];
-    User *user1 = [[User alloc] init];
-    user1.username = @"user1";
-    user1.fullName = @"Joe Moran";
-    self.currentUser.friends = [[NSArray alloc] initWithObjects:user1, nil];
-    Event *event1 = [[Event alloc] init];
-    event1.eventTitle = @"Party in Dillon";
-    event1.eventDescription = @"A fun little get together in Dillon ;) I am making this description extra long in order to test how it is formatted on the screen";
-    event1.location = [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733];
-    event1.host = user1;
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
 
-    [components setYear: 2015];
-    [components setMonth: 5];
-    [components setDay: 22];
-    [components setHour:20];
-    [components setMinute:0];
+    //User *user2 = (User *)[User object];
+    //user2.username = @"Mary";
+    //user2.password = @"banana";
+    //user2.email = @"cshinaver@gmail.com";
+    //[user2 signUp];
+    //
+    //User *user3 = (User *)[User object];
+    //user3.username = @"Anna";
+    //user3.password = @"banana";
+    //user3.email = @"fshinaver@gmail.com";
+    //[user3 signUp];
     
-    event1.start = [calendar dateFromComponents:components];
+    User *user1 = (User *)[User object];
+    self.currentUser = user1;
+    self.currentUser.username = @"Charles";
+    self.currentUser.password = @"banana";
+    self.currentUser.email = @"gshinaver@gmail.com";
+    
+	PFQuery *query = [User query];
+    self.currentUser.friends = [query findObjects];
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
+    self.currentUser.events = [query findObjects];
 
-    [components setYear: 2015];
-    [components setMonth: 5];
-    [components setDay: 22];
-    [components setHour:23];
-    [components setMinute:0];
+    [self.currentUser signUp];
     
-    event1.end = [calendar dateFromComponents:components];
-    
-    user1.events = [NSMutableArray arrayWithObjects: event1, nil];
-    self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,6 +127,10 @@
     fe.events = u.events;
  
 }
+
+
+
+
 
 
 @end
