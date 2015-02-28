@@ -13,7 +13,6 @@
 
 @interface MapViewController () {
     CLLocationManager *lm;
-    NSMutableArray *events;
 }
 
 @end
@@ -31,7 +30,6 @@
     self.mapView.delegate = self;
     
     // Allocate space to array
-    events = [[NSMutableArray alloc] init];
     
     self.currentUser = [[User alloc] init];
     self.currentUser.fullName = @"Charles Shinaver";
@@ -65,20 +63,7 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(41.700278, -86.230733), 3200, 3200);
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
-    
-    
-    // Iterate through friends and events
-    for (User *friend in self.currentUser.friends)
-    {
-        for (Event *e in friend.events)
-        {
-            if ([e.invitees containsObject:self.currentUser.fullName])
-            {
-                [events addObject:e];
-            }
-        }
-        
-    }
+    NSArray *events = [self.currentUser getInvitedEvents];
     
     // Create points for each event
     for (Event *e in events)

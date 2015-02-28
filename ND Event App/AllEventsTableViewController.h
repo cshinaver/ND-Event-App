@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface AllEventsTableViewController : UITableViewController
 
 @property NSArray *publicEvents;
-
+@property User *currentUser;
 @end
