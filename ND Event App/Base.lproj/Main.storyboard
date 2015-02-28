@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Host" id="QY3-P8-wQa"/>
+                    <tabBarItem key="tabBarItem" title="Host" image="write-simple-7" id="QY3-P8-wQa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,7 +67,7 @@
                             <outlet property="delegate" destination="Pn5-fS-lIZ" id="DFy-eP-xwW"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="yU7-H9-OeB"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="spanner-7" id="yU7-H9-OeB"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCh-Mc-rfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,7 +121,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="fOm-DA-rqv"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="compass-point-7" id="fOm-DA-rqv"/>
                     <connections>
                         <outlet property="mapView" destination="8Nl-ua-POe" id="e6O-l5-b2N"/>
                     </connections>
@@ -298,7 +298,7 @@
         <scene sceneID="5iM-8X-jmo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bdc-5d-qyQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends List" id="I2S-oZ-QKE"/>
+                    <tabBarItem key="tabBarItem" title="Friends List" image="book-simple-7" id="I2S-oZ-QKE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vCI-2W-SZ3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -317,7 +317,7 @@
         <scene sceneID="9Cy-Ej-hwy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OgJ-hF-aeH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Events" id="Ykh-V2-QRV"/>
+                    <tabBarItem key="tabBarItem" title="All Events" image="list-simple-7" id="Ykh-V2-QRV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eVa-Nu-Oeo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -333,6 +333,13 @@
             <point key="canvasLocation" x="2425" y="908"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="book-simple-7" width="29" height="30"/>
+        <image name="compass-point-7" width="30" height="30"/>
+        <image name="list-simple-7" width="30" height="30"/>
+        <image name="spanner-7" width="30" height="30"/>
+        <image name="write-simple-7" width="29" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rWK-bh-ff6"/>
     </inferredMetricsTieBreakers>
