@@ -24,18 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-    //User *user2 = (User *)[User object];
-    //user2.username = @"Mary";
-    //user2.password = @"banana";
-    //user2.email = @"bshinaver@gmail.com";
-    //[user2 signUp];
-    //
-    //User *user3 = (User *)[User object];
-    //user3.username = @"Anna";
-    //user3.password = @"banana";
-    //user3.email = @"cshinaver@gmail.com";
-    //[user3 signUp];
-    
     User *user1 = (User *)[User object];
     user1.username = @"Charles";
     user1.password = @"banana";
@@ -59,18 +47,8 @@
 
     [user1 signUp];
     
-  
-	//PFObject *User= [PFObject objectWithClassName:@"User"];
-	//User[@"fullName"] = @"Anna";
-//	//User[@"events"] = @[@"event1", @"event2"];
-//	//User2[@"friends"] = @[@"name1", @"name2"];
-
-//	[query getObjectInBackgroundWithId:@"xWMyZ4YEGZ" block:^(PFObject *User, NSError *error) {
-//		// Do something with the returned PFObject in the gameScore variable.
-//		NSLog(@"%@", User);
-//	}];
-//	
-
+    user1.events = [NSMutableArray arrayWithObjects: event1, nil];
+    self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
 }
 
 - (void)didReceiveMemoryWarning {
