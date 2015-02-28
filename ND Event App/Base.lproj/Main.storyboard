@@ -133,7 +133,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="AKO-mA-kx9" kind="show" trigger="accessoryAction" id="mkn-iT-yYD"/>
+                                    <segue destination="AKO-mA-kx9" kind="show" id="6Fc-oY-qTZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -160,7 +160,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Yih-Al-mvu">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Yih-Al-mvu">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yih-Al-mvu" id="BRT-va-OI1">
                                     <autoresizingMask key="autoresizingMask"/>
