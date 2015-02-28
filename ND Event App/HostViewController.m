@@ -16,7 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.titleLabel.text = @"Host your own event";
+    self.switchLabel.text = @"Private event";
+    [self.theSwitch setOn:NO];
+    self.eventTitleLabel.text = @"Event title";
+    self.eventDescriptionLabel.text = @"Description";
+    self.locationLabel.text = @"Location";
+    self.startDateLabel.text = @"Start date";
+    self.endDateLabel.text = @"End date";
+    self.startTimeLabel.text = @"Time";
+    self.endTimeLabel.text = @"Time";
+    self.descriptionTextView.layer.borderWidth = 1.0;
+    self.descriptionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+    [self.createButton setTitle:@"Create event" forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
