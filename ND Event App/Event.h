@@ -8,17 +8,19 @@
 
 #import<Foundation/Foundation.h>
 #import "User.h"
+#import <MapKit/MapKit.h>
+
 @interface Event : NSObject
 
 @property NSString *eventTitle;
 @property User *host;
+@property CLLocation *location;
 @property NSString *eventDescription;
-@property NSString *location;
 @property NSDate *start;
 @property NSDate *end;
 @property NSArray *invitees;
 
-- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(NSString *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end;
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end;
 
 @end
 
