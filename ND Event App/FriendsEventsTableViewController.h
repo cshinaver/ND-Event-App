@@ -11,5 +11,6 @@
 @interface FriendsEventsTableViewController : UITableViewController
 
 @property NSArray *events;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

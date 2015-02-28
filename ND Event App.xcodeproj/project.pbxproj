@@ -15,6 +15,7 @@
 		1CE9B29D1AA1743900160D0B /* ND_Event_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B29C1AA1743900160D0B /* ND_Event_AppTests.m */; };
 		1CE9B2AA1AA1898400160D0B /* FriendsEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */; };
 		1CE9B2AC1AA195CE00160D0B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2AB1AA195CE00160D0B /* User.m */; };
+		1CE9B2AF1AA1A49000160D0B /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2AE1AA1A49000160D0B /* EventsViewController.m */; };
 		95F965011AA18B5C007D4CF8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F964FF1AA18B5C007D4CF8 /* Bolts.framework */; };
 		95F965021AA18B5C007D4CF8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F965001AA18B5C007D4CF8 /* Parse.framework */; };
 		95F965051AA18B91007D4CF8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F965041AA18B91007D4CF8 /* AudioToolbox.framework */; };
@@ -63,6 +64,8 @@
 		1CE9B2A81AA1898400160D0B /* FriendsEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsEventsTableViewController.h; sourceTree = "<group>"; };
 		1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsEventsTableViewController.m; sourceTree = "<group>"; };
 		1CE9B2AB1AA195CE00160D0B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		1CE9B2AD1AA1A49000160D0B /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
+		1CE9B2AE1AA1A49000160D0B /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
 		95F964FF1AA18B5C007D4CF8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		95F965001AA18B5C007D4CF8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		95F965041AA18B91007D4CF8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				1CE9B2841AA1743900160D0B /* AppDelegate.h */,
 				1CE9B2851AA1743900160D0B /* AppDelegate.m */,
 				1CE9B28A1AA1743900160D0B /* Main.storyboard */,
+				1CE9B2AD1AA1A49000160D0B /* EventsViewController.h */,
+				1CE9B2AE1AA1A49000160D0B /* EventsViewController.m */,
 				1CE9B2A81AA1898400160D0B /* FriendsEventsTableViewController.h */,
 				1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */,
 				E98FAE291AA180A500E119C4 /* SettingsTableViewController.h */,
@@ -324,6 +329,7 @@
 				E98FAE221AA1807D00E119C4 /* MapViewController.m in Sources */,
 				E98FAE1F1AA1800B00E119C4 /* FriendsListTableViewController.m in Sources */,
 				1CE9B2831AA1743900160D0B /* main.m in Sources */,
+				1CE9B2AF1AA1A49000160D0B /* EventsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

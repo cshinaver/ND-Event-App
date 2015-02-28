@@ -8,6 +8,7 @@
 
 #import "FriendsEventsTableViewController.h"
 #import "Event.h"
+#import "EventsViewController.h"
 
 @interface FriendsEventsTableViewController()
 
@@ -90,14 +91,16 @@
  }
  */
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     EventsViewController *evc = [segue destinationViewController];
+     
+     Event *e = self.events[self.tableView.indexPathForSelectedRow.row];
+     evc.event = e;
  }
- */
+
 
 @end

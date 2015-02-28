@@ -27,19 +27,29 @@
     self.currentUser.friends = [[NSArray alloc] initWithObjects:user1, nil];
     Event *event1 = [[Event alloc] init];
     event1.eventTitle = @"Party in Dillon";
-    event1.eventDescription = @"A fun little get together in Dillon ;)";
+    event1.eventDescription = @"A fun little get together in Dillon ;) I am making this description extra long in order to test how it is formatted on the screen";
     event1.location = @"Dillon. duh";
-    NSCalendar *calendar = [[NSCalendar alloc] init];
+    event1.host = user1;
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components = [[NSDateComponents alloc] init];
+
     [components setYear: 2015];
     [components setMonth: 5];
     [components setDay: 22];
     [components setHour:20];
     [components setMinute:0];
+    
     event1.start = [calendar dateFromComponents:components];
+
+    [components setYear: 2015];
+    [components setMonth: 5];
+    [components setDay: 22];
     [components setHour:23];
     [components setMinute:0];
+    
     event1.end = [calendar dateFromComponents:components];
+    
     user1.events = [NSArray arrayWithObjects: event1, nil];
     self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
 }

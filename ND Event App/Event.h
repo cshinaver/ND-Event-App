@@ -7,10 +7,11 @@
 //
 
 #import<Foundation/Foundation.h>
-
+#import "User.h"
 @interface Event : NSObject
 
 @property NSString *eventTitle;
+@property User *host;
 @property NSString *eventDescription;
 @property NSString *location;
 @property NSDate *start;
