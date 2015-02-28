@@ -41,7 +41,7 @@
     [components setMinute:0];
     event1.end = [calendar dateFromComponents:components];
     user1.events = [NSArray arrayWithObjects: event1, nil];
-    currentUser.friends = [NSArray arrayWithObjects: user1, nil];
+    self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
 }
 
 - (void)didReceiveMemoryWarning {
