@@ -14,11 +14,12 @@
 @interface User : PFUser<PFSubclassing>
 
 @property (retain) NSString *fullName;
-@property (retain) NSMutableArray *events;
-@property (retain) NSMutableArray *friends;
+@property (retain) NSArray *events;
+@property (retain) NSArray *friends;
 
 + (User *)currentUser;
 - (void)signUp;
++ (User *)getUser:(NSString *)username;
 
 
 

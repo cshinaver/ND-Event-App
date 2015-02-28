@@ -23,32 +23,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+
     User *user1 = (User *)[User object];
-    user1.username = @"Charles";
-    user1.password = @"banana";
-    user1.email = @"gshinaver@gmail.com";
+    self.currentUser = user1;
+    self.currentUser.username = @"Charles";
+    self.currentUser.password = @"banana";
+    self.currentUser.email = @"gshinaver@gmail.com";
     
 	PFQuery *query = [User query];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                [user1.friends addObject:object];
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-    
+    self.currentUser.friends = [query findObjects];
 
-    [user1 signUp];
+    [self.currentUser signUp];
     
-    user1.events = [NSMutableArray arrayWithObjects: event1, nil];
-    self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,23 +48,23 @@
     return 1;
 }
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    // Return the number of rows in the section.
-//    return self.currentUser.friends.count;
-//}
-//
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-//    
-//    // Configure the cell...
-//    User *u = self.currentUser.friends[indexPath.row];
-//    
-//    cell.textLabel.text = u.username;
-//    
-//    return cell;
-//}
-//
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.currentUser.friends.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    // Configure the cell...
+    User *u = self.currentUser.friends[indexPath.row];
+    
+    cell.textLabel.text = u.username;
+    
+    return cell;
+}
+
 
 /*
 // Override to support conditional editing of the table view.

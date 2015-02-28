@@ -9,10 +9,10 @@
 #import "User.h"
 #import <Parse/PFObject+Subclass.h>
 #import <Parse/PFUser.h>
+#import <Parse/Parse.h>
 
-@implementation User {
-    
-}
+@implementation User
+
 @dynamic fullName;
 @dynamic friends;
 @dynamic events;
@@ -36,6 +36,17 @@
             NSLog(@"%@", errorString);
         }
     }];
+    
+}
+
++ (User *)getUser:(NSString *)username
+{
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:username];
+    NSArray *users = [query findObjects];
+    
+    return users[0];
+
     
 }
 
