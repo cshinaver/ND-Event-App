@@ -42,6 +42,8 @@
 		1CE9B2961AA1743900160D0B /* ND Event AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ND Event AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE9B29B1AA1743900160D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CE9B29C1AA1743900160D0B /* ND_Event_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ND_Event_AppTests.m; sourceTree = "<group>"; };
+		1CE9B2A61AA1828300160D0B /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		1CE9B2A71AA1832E00160D0B /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		E98FAE1D1AA1800B00E119C4 /* FriendsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsListTableViewController.h; sourceTree = "<group>"; };
 		E98FAE1E1AA1800B00E119C4 /* FriendsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsListTableViewController.m; sourceTree = "<group>"; };
 		E98FAE201AA1807D00E119C4 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -106,6 +108,8 @@
 				E98FAE211AA1807D00E119C4 /* MapViewController.m */,
 				E98FAE1D1AA1800B00E119C4 /* FriendsListTableViewController.h */,
 				E98FAE1E1AA1800B00E119C4 /* FriendsListTableViewController.m */,
+				1CE9B2A61AA1828300160D0B /* User.h */,
+				1CE9B2A71AA1832E00160D0B /* Event.h */,
 				1CE9B28D1AA1743900160D0B /* Images.xcassets */,
 				1CE9B28F1AA1743900160D0B /* LaunchScreen.xib */,
 				1CE9B2801AA1743900160D0B /* Supporting Files */,
