@@ -24,6 +24,7 @@
 - (void)saveToDatabase;
 + (User *)getUser:(NSString *)username;
 + (NSArray *)getAllUsers;
+- (BOOL)isFriendsWith:(User *)myFriend;
 - (NSArray *)getInvitedEvents;
 - (NSArray *)getInvitedEventsFromFriend:(User *)f;
 

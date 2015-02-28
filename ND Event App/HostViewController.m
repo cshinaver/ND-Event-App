@@ -8,6 +8,7 @@
 
 #import "HostViewController.h"
 #import "Event.h"
+#import "User.h"
 
 @interface HostViewController ()
 
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     
     self.currentUser = [User getUser:@"Mary"];
+    [self.currentUser login:@"Mary" password: @"hi"];
 
     self.titleLabel.text = @"Host your own event";
     self.switchLabel.text = @"Private event";
@@ -55,24 +57,30 @@
 
 - (IBAction)createEvent:(id)sender {
     
-    
-    Event *e = [[Event alloc] initWithClassName:@"Event"];
+    NSString *eventTitle;
+    NSString *eventDescription;
+    PFGeoPoint *location;
+    NSDate *start;
+    NSDate *end;
+    User *host;
+    NSArray *invitees;
+    int viewStatus;
     
     if (self.theSwitch.isOn)
     {
-        e.viewStatus = PRIVATE;
+        viewStatus = PRIVATE;
     }
     
     else
     {
-        e.viewStatus = PUBLIC;
+        viewStatus = PUBLIC;
     }
     
-    e.eventTitle = self.eventTitleInput.text;
+    eventTitle = self.eventTitleInput.text;
     
-    e.eventDescription = self.eventDescriptionLabel.text;
+    eventDescription = self.eventDescriptionLabel.text;
 
-    e.host = self.currentUser;
+    host = self.currentUser;
     
     NSCalendar *calendar1 = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSCalendar *calendar2 = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -85,7 +93,7 @@
     [components1 setHour: [self.startHourInput.text intValue]];
     [components1 setMinute: [self.startMinuteInput.text intValue]];
     
-    e.start = [calendar1 dateFromComponents:components1];
+    start = [calendar1 dateFromComponents:components1];
     
     [components2 setYear: [self.endYearInput.text intValue]];
     [components2 setMonth: [self.endMonthInput.text intValue]];
@@ -93,12 +101,14 @@
     [components2 setHour: [self.endHourInput.text intValue]];
     [components2 setMinute:[self.endMinuteInput.text intValue]];
     
-    e.end = [calendar2 dateFromComponents:components2];
+    end = [calendar2 dateFromComponents:components2];
     
     NSMutableCharacterSet *workingSet = [[NSMutableCharacterSet alloc] init];
     [workingSet addCharactersInString:@" ,\n"];
     NSCharacterSet *finalCharacterSet = [workingSet copy];
-    e.invitees = [self.friendsTextView.text componentsSeparatedByCharactersInSet: finalCharacterSet];
+    invitees = [self.friendsTextView.text componentsSeparatedByCharactersInSet: finalCharacterSet];
+    
+    Event *e = [[Event alloc] initWithEventTitle:eventTitle andDescription:eventDescription andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:start andEndTime:end andHost:host andInvitees:invitees andViewStatus:viewStatus];
     
     // Add event to user's events
     [self.currentUser.events addObject:e];
@@ -107,10 +117,6 @@
     
     // Save event
     [e saveToDatabase];
-    
-    
-    
-
     
 }
 @end

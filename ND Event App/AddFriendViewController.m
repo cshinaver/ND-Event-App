@@ -16,8 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.currentUser = [User getUser:@"Charles"];
+
+    self.currentUser = [User getUser:@"Mary"];
+    [self.currentUser login:@"Mary" password: @"hi"];
+    //hide popup label
+    [self.popupLabel setHidden:YES];
     
     self.allUsers = [User getAllUsers];
     
@@ -70,6 +73,18 @@
     [self.currentUser.friends addObject: u];
     
     [self.currentUser saveToDatabase];
+    
+    [self.popupLabel setHidden:NO];
+    
+    if ([self.currentUser isFriendsWith:u])
+    {
+        self.popupLabel.text = [[NSString alloc] initWithFormat:@"You are now friends with %@", u.username];
+    }
+    
+    else
+    {
+        self.popupLabel.text = @"Failed.";
+    }
     
 }
 @end
