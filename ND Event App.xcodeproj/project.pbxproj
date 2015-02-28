@@ -13,6 +13,7 @@
 		1CE9B28E1AA1743900160D0B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9B28D1AA1743900160D0B /* Images.xcassets */; };
 		1CE9B2911AA1743900160D0B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9B28F1AA1743900160D0B /* LaunchScreen.xib */; };
 		1CE9B29D1AA1743900160D0B /* ND_Event_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B29C1AA1743900160D0B /* ND_Event_AppTests.m */; };
+		1CE9B2AA1AA1898400160D0B /* FriendsEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */; };
 		E98FAE1F1AA1800B00E119C4 /* FriendsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE1E1AA1800B00E119C4 /* FriendsListTableViewController.m */; };
 		E98FAE221AA1807D00E119C4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE211AA1807D00E119C4 /* MapViewController.m */; };
 		E98FAE251AA1808800E119C4 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE241AA1808800E119C4 /* HostViewController.m */; };
@@ -44,6 +45,8 @@
 		1CE9B29C1AA1743900160D0B /* ND_Event_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ND_Event_AppTests.m; sourceTree = "<group>"; };
 		1CE9B2A61AA1828300160D0B /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		1CE9B2A71AA1832E00160D0B /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		1CE9B2A81AA1898400160D0B /* FriendsEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsEventsTableViewController.h; sourceTree = "<group>"; };
+		1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsEventsTableViewController.m; sourceTree = "<group>"; };
 		E98FAE1D1AA1800B00E119C4 /* FriendsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsListTableViewController.h; sourceTree = "<group>"; };
 		E98FAE1E1AA1800B00E119C4 /* FriendsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsListTableViewController.m; sourceTree = "<group>"; };
 		E98FAE201AA1807D00E119C4 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				1CE9B2841AA1743900160D0B /* AppDelegate.h */,
 				1CE9B2851AA1743900160D0B /* AppDelegate.m */,
 				1CE9B28A1AA1743900160D0B /* Main.storyboard */,
+				1CE9B2A81AA1898400160D0B /* FriendsEventsTableViewController.h */,
+				1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */,
 				E98FAE291AA180A500E119C4 /* SettingsTableViewController.h */,
 				E98FAE2A1AA180A500E119C4 /* SettingsTableViewController.m */,
 				E98FAE261AA1809C00E119C4 /* AllEventsTableViewController.h */,
@@ -247,6 +252,7 @@
 				E98FAE251AA1808800E119C4 /* HostViewController.m in Sources */,
 				1CE9B2861AA1743900160D0B /* AppDelegate.m in Sources */,
 				E98FAE281AA1809C00E119C4 /* AllEventsTableViewController.m in Sources */,
+				1CE9B2AA1AA1898400160D0B /* FriendsEventsTableViewController.m in Sources */,
 				E98FAE221AA1807D00E119C4 /* MapViewController.m in Sources */,
 				E98FAE1F1AA1800B00E119C4 /* FriendsListTableViewController.m in Sources */,
 				1CE9B2831AA1743900160D0B /* main.m in Sources */,
