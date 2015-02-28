@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NyL-i5-AMa">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Item" id="OKg-6u-BTv"/>
+                                    <tabBarItem title="Item" id="tas-5W-xcD"/>
+                                    <tabBarItem title="Item" id="cgi-oZ-GZO"/>
+                                    <tabBarItem title="Item" id="5xt-ed-0bH"/>
+                                    <tabBarItem title="Item" id="I3O-n6-OJd"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NyL-i5-AMa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="6YE-Lc-nTc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NyL-i5-AMa" secondAttribute="bottom" id="7DQ-hw-RRn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NyL-i5-AMa" secondAttribute="trailing" constant="-16" id="AWu-cc-ZYn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Events" destination="tas-5W-xcD" id="ioa-Z7-AbU"/>
+                        <outlet property="Friends" destination="OKg-6u-BTv" id="Zza-D4-aZF"/>
+                        <outlet property="Host" destination="5xt-ed-0bH" id="vbb-e9-qxM"/>
+                        <outlet property="Map" destination="cgi-oZ-GZO" id="HHq-LY-zj3"/>
+                        <outlet property="Settings" destination="I3O-n6-OJd" id="fKt-JF-pft"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
