@@ -118,6 +118,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="fOm-DA-rqv"/>
+                    <connections>
+                        <outlet property="mapView" destination="8Nl-ua-POe" id="e6O-l5-b2N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0XH-gW-n7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
