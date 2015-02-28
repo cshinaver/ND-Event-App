@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#import "Event.h"
 #import <Parse/PFObject+Subclass.h>
 #import <Parse/PFUser.h>
 #import <Parse/Parse.h>
@@ -39,6 +40,51 @@
                                         }
                                     }];
 }
+
+
+- (NSArray *)getInvitedEvents
+{
+    /*
+     Gets events user was invited to
+    */
+    NSMutableArray *events = [[NSMutableArray alloc] init];
+    
+    NSArray *arr;
+    
+    for (User *friend in self.friends)
+    {
+        PFQuery *query = [Event query];
+        [query whereKey:@"host" equalTo:[User getUser:friend.username]];
+        arr = [query findObjects];
+        for (Event *e in arr)
+        {
+            if ([e.invitees containsObject:self.username])
+            {
+                [events addObject:e];
+            }
+        }
+        
+    }
+    
+    return [[NSArray alloc] initWithArray: events];
+    
+}
+
+- (NSArray *)getInvitedEventsFromFriend:(User *)f
+{
+    NSArray *arr = [self getInvitedEvents];
+    NSMutableArray *events = [NSMutableArray new];
+    for (Event *e in arr)
+    {
+        if ([e.invitees containsObject:self.username])
+        {
+            [events addObject:e];
+        }
+    }
+    
+    return events;
+}
+
 -(void) saveToDatabase
 {
     [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

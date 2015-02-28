@@ -23,31 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //User *user2 = (User *)[User object];
-    //user2.username = @"Mary";
-    //user2.password = @"banana";
-    //user2.email = @"cshinaver@gmail.com";
-    //[user2 signUp];
-    //
-    //User *user3 = (User *)[User object];
-    //user3.username = @"Anna";
-    //user3.password = @"banana";
-    //user3.email = @"fshinaver@gmail.com";
-    //[user3 signUp];
     
-    User *user1 = (User *)[User object];
-    self.currentUser = user1;
-    self.currentUser.username = @"Charles";
-    self.currentUser.password = @"banana";
-    self.currentUser.email = @"gshinaver@gmail.com";
+    self.currentUser = [User getUser:@"Charles"];
     
-	PFQuery *query = [User query];
-    self.currentUser.friends = [query findObjects];
-    PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
-    self.currentUser.events = [query findObjects];
-
-    [self.currentUser signUp];
+    //Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
+    //[e1 saveToDatabase];
     
 }
 
@@ -124,8 +104,10 @@
     
     FriendsEventsTableViewController *fe = [segue destinationViewController];
     User *u = self.currentUser.friends[self.tableView.indexPathForSelectedRow.row];
-    fe.events = u.events;
- 
+    
+    fe.events = [self.currentUser getInvitedEventsFromFriend:u];
+    
+
 }
 
 
