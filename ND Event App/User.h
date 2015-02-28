@@ -14,15 +14,11 @@
 @interface User : PFUser<PFSubclassing>
 
 @property (retain) NSString *fullName;
-@property (retain) NSArray *events;
-@property (retain) NSArray *friends;
+@property (retain) NSMutableArray *events;
+@property (retain) NSMutableArray *friends;
 
 + (User *)currentUser;
 - (void)signUp;
 + (User *)getUser:(NSString *)username;
 
-
-
 @end
-
-// Armor.m
