@@ -55,7 +55,7 @@
 
 + (User *)getUser:(NSString *)username
 {
-    PFQuery *query = [PFUser query];
+    PFQuery *query = [User query];
     [query whereKey:@"username" equalTo:username];
     NSArray *users = [query findObjects];
     
@@ -66,7 +66,7 @@
 
 + (NSArray *)getAllUsers
 {
-    PFQuery *query = [PFUser query];
+    PFQuery *query = [User query];
     NSArray *users = [query findObjects];
     
     return users;
