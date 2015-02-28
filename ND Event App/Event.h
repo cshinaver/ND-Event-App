@@ -8,17 +8,15 @@
 
 #import<Foundation/Foundation.h>
 
-#ifndef ND_Event_App_Event_h
-#define ND_Event_App_Event_h
-
 @interface Event : NSObject
 
 @property NSString *eventTitle;
-@property NSString *description;
+@property NSString *eventDescription;
 @property NSString *location;
 @property NSDate *start;
 @property NSDate *end;
 
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(NSString *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end;
+
 @end
 
-#endif
