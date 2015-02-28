@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		1CE9B2831AA1743900160D0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2821AA1743900160D0B /* main.m */; };
 		1CE9B2861AA1743900160D0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2851AA1743900160D0B /* AppDelegate.m */; };
-		1CE9B2891AA1743900160D0B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2881AA1743900160D0B /* ViewController.m */; };
 		1CE9B28C1AA1743900160D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9B28A1AA1743900160D0B /* Main.storyboard */; };
 		1CE9B28E1AA1743900160D0B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9B28D1AA1743900160D0B /* Images.xcassets */; };
 		1CE9B2911AA1743900160D0B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9B28F1AA1743900160D0B /* LaunchScreen.xib */; };
 		1CE9B29D1AA1743900160D0B /* ND_Event_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B29C1AA1743900160D0B /* ND_Event_AppTests.m */; };
+		E98FAE1F1AA1800B00E119C4 /* FriendsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE1E1AA1800B00E119C4 /* FriendsListTableViewController.m */; };
+		E98FAE221AA1807D00E119C4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE211AA1807D00E119C4 /* MapViewController.m */; };
+		E98FAE251AA1808800E119C4 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE241AA1808800E119C4 /* HostViewController.m */; };
+		E98FAE281AA1809C00E119C4 /* AllEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE271AA1809C00E119C4 /* AllEventsTableViewController.m */; };
+		E98FAE2B1AA180A500E119C4 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE2A1AA180A500E119C4 /* SettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +36,22 @@
 		1CE9B2821AA1743900160D0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1CE9B2841AA1743900160D0B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1CE9B2851AA1743900160D0B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1CE9B2871AA1743900160D0B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1CE9B2881AA1743900160D0B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1CE9B28B1AA1743900160D0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CE9B28D1AA1743900160D0B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1CE9B2901AA1743900160D0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1CE9B2961AA1743900160D0B /* ND Event AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ND Event AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE9B29B1AA1743900160D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CE9B29C1AA1743900160D0B /* ND_Event_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ND_Event_AppTests.m; sourceTree = "<group>"; };
+		E98FAE1D1AA1800B00E119C4 /* FriendsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsListTableViewController.h; sourceTree = "<group>"; };
+		E98FAE1E1AA1800B00E119C4 /* FriendsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsListTableViewController.m; sourceTree = "<group>"; };
+		E98FAE201AA1807D00E119C4 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		E98FAE211AA1807D00E119C4 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		E98FAE231AA1808800E119C4 /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
+		E98FAE241AA1808800E119C4 /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
+		E98FAE261AA1809C00E119C4 /* AllEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsTableViewController.h; sourceTree = "<group>"; };
+		E98FAE271AA1809C00E119C4 /* AllEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsTableViewController.m; sourceTree = "<group>"; };
+		E98FAE291AA180A500E119C4 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		E98FAE2A1AA180A500E119C4 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +95,17 @@
 			children = (
 				1CE9B2841AA1743900160D0B /* AppDelegate.h */,
 				1CE9B2851AA1743900160D0B /* AppDelegate.m */,
-				1CE9B2871AA1743900160D0B /* ViewController.h */,
-				1CE9B2881AA1743900160D0B /* ViewController.m */,
 				1CE9B28A1AA1743900160D0B /* Main.storyboard */,
+				E98FAE291AA180A500E119C4 /* SettingsTableViewController.h */,
+				E98FAE2A1AA180A500E119C4 /* SettingsTableViewController.m */,
+				E98FAE261AA1809C00E119C4 /* AllEventsTableViewController.h */,
+				E98FAE271AA1809C00E119C4 /* AllEventsTableViewController.m */,
+				E98FAE231AA1808800E119C4 /* HostViewController.h */,
+				E98FAE241AA1808800E119C4 /* HostViewController.m */,
+				E98FAE201AA1807D00E119C4 /* MapViewController.h */,
+				E98FAE211AA1807D00E119C4 /* MapViewController.m */,
+				E98FAE1D1AA1800B00E119C4 /* FriendsListTableViewController.h */,
+				E98FAE1E1AA1800B00E119C4 /* FriendsListTableViewController.m */,
 				1CE9B28D1AA1743900160D0B /* Images.xcassets */,
 				1CE9B28F1AA1743900160D0B /* LaunchScreen.xib */,
 				1CE9B2801AA1743900160D0B /* Supporting Files */,
@@ -219,8 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CE9B2891AA1743900160D0B /* ViewController.m in Sources */,
+				E98FAE2B1AA180A500E119C4 /* SettingsTableViewController.m in Sources */,
+				E98FAE251AA1808800E119C4 /* HostViewController.m in Sources */,
 				1CE9B2861AA1743900160D0B /* AppDelegate.m in Sources */,
+				E98FAE281AA1809C00E119C4 /* AllEventsTableViewController.m in Sources */,
+				E98FAE221AA1807D00E119C4 /* MapViewController.m in Sources */,
+				E98FAE1F1AA1800B00E119C4 /* FriendsListTableViewController.m in Sources */,
 				1CE9B2831AA1743900160D0B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +438,7 @@
 				1CE9B2A21AA1743900160D0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CE9B2A31AA1743900160D0B /* Build configuration list for PBXNativeTarget "ND Event AppTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +447,7 @@
 				1CE9B2A51AA1743900160D0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
