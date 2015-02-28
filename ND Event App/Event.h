@@ -8,7 +8,13 @@
 
 #import<Foundation/Foundation.h>
 #import "User.h"
+
 @interface Event : NSObject
+
+enum {
+    PRIVATE,
+    PUBLIC
+};
 
 @property NSString *eventTitle;
 @property User *host;
@@ -16,6 +22,7 @@
 @property NSString *location;
 @property NSDate *start;
 @property NSDate *end;
+@property BOOL *viewStatus;
 
 - (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(NSString *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end;
 
