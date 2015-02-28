@@ -19,6 +19,7 @@
 
 + (User *)currentUser;
 - (void)signUp;
+- (void)saveToDatabase;
 + (User *)getUser:(NSString *)username;
 
 @end

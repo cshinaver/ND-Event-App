@@ -25,6 +25,20 @@
     return (User *)[PFUser currentUser];
 }
 
+-(void) saveToDatabase
+{
+    [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+            NSLog(@"Saved user with event");
+        } else {
+            // There was a problem, check error.description
+            NSLog(@"Not so saved...");
+        }
+    }];
+    
+}
 - (void)signUp
 {
     [self signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
