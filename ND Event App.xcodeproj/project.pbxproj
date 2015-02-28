@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C95C08A1AA23CF300B59EEA /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C95C0891AA23CF300B59EEA /* AddFriendViewController.m */; };
 		1CE9B2831AA1743900160D0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2821AA1743900160D0B /* main.m */; };
 		1CE9B2861AA1743900160D0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2851AA1743900160D0B /* AppDelegate.m */; };
 		1CE9B28C1AA1743900160D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9B28A1AA1743900160D0B /* Main.storyboard */; };
@@ -33,7 +34,6 @@
 		E98FAE221AA1807D00E119C4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE211AA1807D00E119C4 /* MapViewController.m */; };
 		E98FAE251AA1808800E119C4 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE241AA1808800E119C4 /* HostViewController.m */; };
 		E98FAE281AA1809C00E119C4 /* AllEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE271AA1809C00E119C4 /* AllEventsTableViewController.m */; };
-		E98FAE2B1AA180A500E119C4 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE2A1AA180A500E119C4 /* SettingsTableViewController.m */; };
 		E9B347FE1AA1937900130A43 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B347FC1AA1898600130A43 /* Event.m */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C95C0881AA23CF300B59EEA /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
+		1C95C0891AA23CF300B59EEA /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
 		1CE9B27D1AA1743900160D0B /* ND Event App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ND Event App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE9B2811AA1743900160D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CE9B2821AA1743900160D0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,8 +89,6 @@
 		E98FAE241AA1808800E119C4 /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		E98FAE261AA1809C00E119C4 /* AllEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsTableViewController.h; sourceTree = "<group>"; };
 		E98FAE271AA1809C00E119C4 /* AllEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsTableViewController.m; sourceTree = "<group>"; };
-		E98FAE291AA180A500E119C4 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
-		E98FAE2A1AA180A500E119C4 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		E9B347FC1AA1898600130A43 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,12 +148,12 @@
 				1CE9B2841AA1743900160D0B /* AppDelegate.h */,
 				1CE9B2851AA1743900160D0B /* AppDelegate.m */,
 				1CE9B28A1AA1743900160D0B /* Main.storyboard */,
+				1C95C0881AA23CF300B59EEA /* AddFriendViewController.h */,
+				1C95C0891AA23CF300B59EEA /* AddFriendViewController.m */,
 				1CE9B2AD1AA1A49000160D0B /* EventsViewController.h */,
 				1CE9B2AE1AA1A49000160D0B /* EventsViewController.m */,
 				1CE9B2A81AA1898400160D0B /* FriendsEventsTableViewController.h */,
 				1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */,
-				E98FAE291AA180A500E119C4 /* SettingsTableViewController.h */,
-				E98FAE2A1AA180A500E119C4 /* SettingsTableViewController.m */,
 				E98FAE261AA1809C00E119C4 /* AllEventsTableViewController.h */,
 				E98FAE271AA1809C00E119C4 /* AllEventsTableViewController.m */,
 				E98FAE231AA1808800E119C4 /* HostViewController.h */,
@@ -321,10 +321,10 @@
 			files = (
 				1CE9B2AC1AA195CE00160D0B /* User.m in Sources */,
 				E9B347FE1AA1937900130A43 /* Event.m in Sources */,
-				E98FAE2B1AA180A500E119C4 /* SettingsTableViewController.m in Sources */,
 				E98FAE251AA1808800E119C4 /* HostViewController.m in Sources */,
 				1CE9B2861AA1743900160D0B /* AppDelegate.m in Sources */,
 				E98FAE281AA1809C00E119C4 /* AllEventsTableViewController.m in Sources */,
+				1C95C08A1AA23CF300B59EEA /* AddFriendViewController.m in Sources */,
 				1CE9B2AA1AA1898400160D0B /* FriendsEventsTableViewController.m in Sources */,
 				E98FAE221AA1807D00E119C4 /* MapViewController.m in Sources */,
 				E98FAE1F1AA1800B00E119C4 /* FriendsListTableViewController.m in Sources */,
