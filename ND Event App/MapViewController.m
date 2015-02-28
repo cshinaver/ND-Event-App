@@ -55,7 +55,7 @@
     [components setHour:23];
     [components setMinute:0];
     event1.end = [calendar dateFromComponents:components];
-    user1.events = [NSArray arrayWithObjects: event1, nil];
+    user1.events = [NSMutableArray arrayWithObjects: event1, nil];
     self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
     
 }

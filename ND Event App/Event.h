@@ -24,7 +24,7 @@ enum {
 @property NSDate *start;
 @property NSDate *end;
 @property NSArray *invitees;
-@property BOOL *viewStatus;
+@property int viewStatus;
 
 - (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end;
 

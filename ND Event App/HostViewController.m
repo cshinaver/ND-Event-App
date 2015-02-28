@@ -53,6 +53,10 @@
 
 - (IBAction)createEvent:(id)sender {
     
+    self.currentUser = [[User alloc] init];
+    self.currentUser.fullName = @"PEMCo";
+    self.currentUser.username = @"PEM";
+    
     Event *e = [[Event alloc] init];
     
     if (self.theSwitch.isOn)
@@ -66,10 +70,31 @@
     }
     
     e.eventTitle = self.eventTitleInput.text;
-    e.location = self.locationInput.text;
     
+    e.eventDescription = self.eventDescriptionLabel.text;
+
+    e.host = self.currentUser;
     
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
     
+    [components setYear: [self.startYearInput.text intValue]];
+    [components setMonth: [self.startMonthInput.text intValue]];
+    [components setDay: [self.startDayInput.text intValue]];
+    [components setHour: [self.startHourInput.text intValue]];
+    [components setMinute: [self.startMinuteInput.text intValue]];
+    
+    e.start = [calendar dateFromComponents:components];
+    
+    [components setYear: [self.endYearInput.text intValue]];
+    [components setMonth: [self.endYearInput.text intValue]];
+    [components setDay: [self.endYearInput.text intValue]];
+    [components setHour: [self.endYearInput.text intValue]];
+    [components setMinute:[self.endYearInput.text intValue]];
+    
+    e.end = [calendar dateFromComponents:components];
+
+    [self.currentUser.events addObject: e];
     
 }
 @end
