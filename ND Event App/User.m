@@ -57,6 +57,8 @@
 {
     PFQuery *query = [User query];
     [query whereKey:@"username" equalTo:username];
+    [query includeKey:@"Events"];
+    [query includeKey:@"friends"];
     NSArray *users = [query findObjects];
     
     return users[0];
@@ -68,6 +70,8 @@
 {
     PFQuery *query = [User query];
     NSArray *users = [query findObjects];
+    [query includeKey:@"Events"];
+    [query includeKey:@"Friends"];
     
     return users;
     
