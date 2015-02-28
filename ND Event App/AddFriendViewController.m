@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.currentUser = [User getUser:@"Charles"];
+    
     self.allUsers = [User getAllUsers];
     
     self.picker.dataSource = self;
