@@ -175,7 +175,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I would like to invite all the fwiends" translatesAutoresizingMaskIntoConstraints="NO" id="9uo-Pg-whB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Charles Mary" translatesAutoresizingMaskIntoConstraints="NO" id="9uo-Pg-whB">
                                 <rect key="frame" x="97" y="381" width="487" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

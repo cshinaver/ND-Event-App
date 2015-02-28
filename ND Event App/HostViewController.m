@@ -56,6 +56,7 @@
     self.currentUser = [[User alloc] init];
     self.currentUser.fullName = @"PEMCo";
     self.currentUser.username = @"PEM";
+    self.currentUser.events = [[NSMutableArray alloc] initWithObjects:nil];
     
     Event *e = [[Event alloc] init];
     
@@ -75,24 +76,31 @@
 
     e.host = self.currentUser;
     
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
+    NSCalendar *calendar1 = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSCalendar *calendar2 = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components1 = [[NSDateComponents alloc] init];
+    NSDateComponents *components2 = [[NSDateComponents alloc] init];
     
-    [components setYear: [self.startYearInput.text intValue]];
-    [components setMonth: [self.startMonthInput.text intValue]];
-    [components setDay: [self.startDayInput.text intValue]];
-    [components setHour: [self.startHourInput.text intValue]];
-    [components setMinute: [self.startMinuteInput.text intValue]];
+    [components1 setYear: [self.startYearInput.text intValue]];
+    [components1 setMonth: [self.startMonthInput.text intValue]];
+    [components1 setDay: [self.startDayInput.text intValue]];
+    [components1 setHour: [self.startHourInput.text intValue]];
+    [components1 setMinute: [self.startMinuteInput.text intValue]];
     
-    e.start = [calendar dateFromComponents:components];
+    e.start = [calendar1 dateFromComponents:components1];
     
-    [components setYear: [self.endYearInput.text intValue]];
-    [components setMonth: [self.endYearInput.text intValue]];
-    [components setDay: [self.endYearInput.text intValue]];
-    [components setHour: [self.endYearInput.text intValue]];
-    [components setMinute:[self.endYearInput.text intValue]];
+    [components2 setYear: [self.endYearInput.text intValue]];
+    [components2 setMonth: [self.endMonthInput.text intValue]];
+    [components2 setDay: [self.endDayInput.text intValue]];
+    [components2 setHour: [self.endHourInput.text intValue]];
+    [components2 setMinute:[self.endMinuteInput.text intValue]];
     
-    e.end = [calendar dateFromComponents:components];
+    e.end = [calendar2 dateFromComponents:components2];
+    
+    NSMutableCharacterSet *workingSet = [[NSMutableCharacterSet alloc] init];
+    [workingSet addCharactersInString:@" ,\n"];
+    NSCharacterSet *finalCharacterSet = [workingSet copy];
+    e.invitees = [self.friendsTextView.text componentsSeparatedByCharactersInSet: finalCharacterSet];
 
     [self.currentUser.events addObject: e];
     
