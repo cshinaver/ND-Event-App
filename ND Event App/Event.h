@@ -12,6 +12,11 @@
 
 @interface Event : NSObject
 
+enum {
+    PRIVATE,
+    PUBLIC
+};
+
 @property NSString *eventTitle;
 @property User *host;
 @property CLLocation *location;
@@ -19,6 +24,7 @@
 @property NSDate *start;
 @property NSDate *end;
 @property NSArray *invitees;
+@property BOOL *viewStatus;
 
 - (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end;
 
