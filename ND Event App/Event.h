@@ -8,8 +8,10 @@
 
 #import<Foundation/Foundation.h>
 
-@interface Event : NSObject
-
+#import <Parse/PFSubclassing.h>
+#import <Parse/PFObject.h>
+@interface Event : PFObject<PFSubclassing>
++(NSString*)parseClassName;
 @property NSString *eventTitle;
 @property NSString *eventDescription;
 @property NSString *location;

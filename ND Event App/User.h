@@ -7,12 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/PFSubclassing.h>
+#import <Parse/PFObject.h>
+#import <Parse/PFUser.h>
 
-@interface User : NSObject
+@interface User : PFUser<PFSubclassing>
+//+(NSString*)parseClassName;
 
-@property NSString *username;
-@property NSString *fullName;
-@property NSArray *events;
-@property NSArray *friends;
+
+//@property (retain)NSString *username;
+@property (retain)NSString *fullName;
+@property (retain)NSArray *events;
+@property (retain)NSArray *friends;
+
 
 @end
+
+// Armor.m
