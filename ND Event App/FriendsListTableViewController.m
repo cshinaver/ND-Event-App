@@ -9,6 +9,7 @@
 #import "FriendsListTableViewController.h"
 #import "User.h"
 #import "Event.h"
+#import "FriendsEventsTableViewController.h"
 
 @interface FriendsListTableViewController ()
 
@@ -21,7 +22,6 @@
     
     User *currentUser = [[User alloc] init];
     User *user1 = [[User alloc] init];
-    currentUser.friends = [NSArray arrayWithObjects: user1, nil];
     user1.username = @"user1";
     user1.fullName = @"Joe Moran";
     Event *event1 = [[Event alloc] init];
@@ -40,7 +40,7 @@
     [components setMinute:0];
     event1.end = [calendar dateFromComponents:components];
     user1.events = [NSArray arrayWithObjects: event1, nil];
-    
+    currentUser.friends = [NSArray arrayWithObjects: user1, nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,14 +108,19 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    FriendsEventsTableViewController *fe = [segue destinationViewController];
+    User *u = self.currentUser.friends[self.tableView.indexPathForSelectedRow.row];
+    fe.events = u.events;
+ 
 }
-*/
+
 
 @end

@@ -12,5 +12,6 @@
 @interface FriendsListTableViewController : UITableViewController
 
 @property User *currentUser;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

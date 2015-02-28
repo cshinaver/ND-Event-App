@@ -10,4 +10,6 @@
 
 @interface FriendsEventsTableViewController : UITableViewController
 
+@property NSArray *events;
+
 @end
