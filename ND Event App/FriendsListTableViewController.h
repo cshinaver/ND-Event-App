@@ -13,5 +13,4 @@
 
 @property User *currentUser;
 
-
 @end
