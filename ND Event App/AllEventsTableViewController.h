@@ -10,4 +10,6 @@
 
 @interface AllEventsTableViewController : UITableViewController
 
+@property NSArray *publicEvents;
+
 @end

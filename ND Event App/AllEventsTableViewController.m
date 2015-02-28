@@ -7,6 +7,7 @@
 //
 
 #import "AllEventsTableViewController.h"
+#import "Event.h"
 
 @interface AllEventsTableViewController ()
 
@@ -22,6 +23,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Dummy events
+    Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:@"Kitteh town" andStartTime:[NSDate date] andEndTime:[NSDate date]];
+    Event *e2 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:@"Kitteh town" andStartTime:[NSDate date] andEndTime:[NSDate date]];
+    Event *e3 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:@"Kitteh town" andStartTime:[NSDate date] andEndTime:[NSDate date]];
 }
 
 - (void)didReceiveMemoryWarning {
