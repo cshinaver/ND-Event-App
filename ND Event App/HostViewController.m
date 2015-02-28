@@ -103,28 +103,11 @@
     // Add event to user's events
     [self.currentUser.events addObject:e];
     // Save user
-    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            // The object has been saved.
-            
-            NSLog(@"Saved user with event");
-        } else {
-            // There was a problem, check error.description
-            NSLog(@"Not so saved...");
-        }
-    }];
+    [self.currentUser saveToDatabase];
     
     // Save event
-    [e saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            // The object has been saved.
-            
-            NSLog(@"Added event");
-        } else {
-            // There was a problem, check error.description
-            NSLog(@"Not so saved...");
-        }
-    }];
+    [e saveToDatabase];
+    
     
     
 

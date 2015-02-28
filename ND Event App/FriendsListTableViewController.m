@@ -24,6 +24,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //User *user2 = (User *)[User object];
+    //user2.username = @"Mary";
+    //user2.password = @"banana";
+    //user2.email = @"cshinaver@gmail.com";
+    //[user2 signUp];
+    //
+    //User *user3 = (User *)[User object];
+    //user3.username = @"Anna";
+    //user3.password = @"banana";
+    //user3.email = @"fshinaver@gmail.com";
+    //[user3 signUp];
+    
     User *user1 = (User *)[User object];
     self.currentUser = user1;
     self.currentUser.username = @"Charles";
@@ -32,6 +44,8 @@
     
 	PFQuery *query = [User query];
     self.currentUser.friends = [query findObjects];
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
+    self.currentUser.events = [query findObjects];
 
     [self.currentUser signUp];
     

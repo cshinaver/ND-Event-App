@@ -31,20 +31,8 @@
     Event *e2 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
     Event *e3 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
     
-	[e1 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-		if (succeeded) {
-			// The object has been saved.
-		} else {
-			// There was a problem, check error.description
-		}
-	}];
-	[e2 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-		if (succeeded) {
-			// The object has been saved.
-		} else {
-			// There was a problem, check error.description
-		}
-	}];
+    [e1 saveToDatabase];
+    [e2 saveToDatabase];
     self.publicEvents = [[NSArray alloc] initWithObjects:e1, e2, e3, nil];
 }
 

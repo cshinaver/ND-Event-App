@@ -26,6 +26,19 @@
 	return @"Event";
 }
 
+-(void)saveToDatabase
+{
+    [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+            NSLog(@"Added event");
+        } else {
+            // There was a problem, check error.description
+            NSLog(@"Not so saved...");
+        }
+    }];
+}
 - (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus
 {
     self = [super init];
