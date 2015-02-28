@@ -8,6 +8,8 @@
 
 #import "AllEventsTableViewController.h"
 #import "Event.h"
+#import "EventsViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface AllEventsTableViewController ()
 
@@ -25,9 +27,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Dummy events
-    Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:@"Kitteh town" andStartTime:[NSDate date] andEndTime:[NSDate date]];
-    Event *e2 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:@"Kitteh town" andStartTime:[NSDate date] andEndTime:[NSDate date]];
-    Event *e3 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:@"Kitteh town" andStartTime:[NSDate date] andEndTime:[NSDate date]];
+    Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date]];
+    Event *e2 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date]];
+    Event *e3 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date]];
     
     self.publicEvents = [[NSArray alloc] initWithObjects:e1, e2, e3, nil];
 }
@@ -92,14 +94,15 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    EventsViewController *evc = [segue destinationViewController];
+    
+    Event *e = self.publicEvents[self.tableView.indexPathForSelectedRow.row];
+    evc.event = e;
 }
-*/
 
 @end

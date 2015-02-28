@@ -262,7 +262,7 @@
                             <constraint firstItem="bBz-QI-2GY" firstAttribute="baseline" secondItem="z5d-1b-yPR" secondAttribute="baseline" id="zc1-DD-hQr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Host" id="QY3-P8-wQa"/>
+                    <tabBarItem key="tabBarItem" title="Host" image="write-simple-7" id="QY3-P8-wQa"/>
                     <connections>
                         <outlet property="createButton" destination="T8D-zV-48E" id="YFt-c9-JEQ"/>
                         <outlet property="descriptionTextView" destination="7Ox-SX-wBD" id="bd8-Yj-FzU"/>
@@ -308,7 +308,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Bdc-5d-qyQ" kind="relationship" relationship="viewControllers" id="D1D-Bg-GDH"/>
-                        <segue destination="O2t-MB-dFD" kind="relationship" relationship="viewControllers" id="nom-cu-dbZ"/>
+                        <segue destination="OgJ-hF-aeH" kind="relationship" relationship="viewControllers" id="nom-cu-dbZ"/>
                         <segue destination="d5N-NG-rkq" kind="relationship" relationship="viewControllers" id="2YM-BK-LPV"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="AFS-go-CCB"/>
                         <segue destination="Pn5-fS-lIZ" kind="relationship" relationship="viewControllers" id="CbA-LK-dId"/>
@@ -339,13 +339,13 @@
                             <outlet property="delegate" destination="Pn5-fS-lIZ" id="DFy-eP-xwW"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="yU7-H9-OeB"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="spanner-7" id="yU7-H9-OeB"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCh-Mc-rfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2491" y="-50"/>
         </scene>
-        <!--All Events-->
+        <!--All Events Table View Controller-->
         <scene sceneID="pRz-2H-iCA">
             <objects>
                 <tableViewController id="O2t-MB-dFD" customClass="AllEventsTableViewController" sceneMemberID="viewController">
@@ -359,6 +359,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BM0-S0-3r1" id="ysl-q3-Agc">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="NTC-Yv-aGz" kind="show" id="rWK-bh-ff6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -366,11 +369,11 @@
                             <outlet property="delegate" destination="O2t-MB-dFD" id="gMC-2t-CQP"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="All Events" id="Ykh-V2-QRV"/>
+                    <navigationItem key="navigationItem" id="l0j-iq-8vf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHT-cT-jbp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2425" y="908"/>
+            <point key="canvasLocation" x="3237" y="908"/>
         </scene>
         <!--Map-->
         <scene sceneID="KZ9-2k-els">
@@ -383,9 +386,17 @@
                     <view key="view" contentMode="scaleToFill" id="JUx-YN-SbS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Nl-ua-POe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="fOm-DA-rqv"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="compass-point-7" id="fOm-DA-rqv"/>
+                    <connections>
+                        <outlet property="mapView" destination="8Nl-ua-POe" id="e6O-l5-b2N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0XH-gW-n7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -559,7 +570,7 @@
         <scene sceneID="5iM-8X-jmo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bdc-5d-qyQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends List" id="I2S-oZ-QKE"/>
+                    <tabBarItem key="tabBarItem" title="Friends List" image="book-simple-7" id="I2S-oZ-QKE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vCI-2W-SZ3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -574,5 +585,34 @@
             </objects>
             <point key="canvasLocation" x="911" y="668"/>
         </scene>
+        <!--All Events-->
+        <scene sceneID="9Cy-Ej-hwy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OgJ-hF-aeH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="All Events" image="list-simple-7" id="Ykh-V2-QRV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eVa-Nu-Oeo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O2t-MB-dFD" kind="relationship" relationship="rootViewController" id="cs8-Kh-I7c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10k-fa-wjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2425" y="908"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="book-simple-7" width="29" height="30"/>
+        <image name="compass-point-7" width="30" height="30"/>
+        <image name="list-simple-7" width="30" height="30"/>
+        <image name="spanner-7" width="30" height="30"/>
+        <image name="write-simple-7" width="29" height="30"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rWK-bh-ff6"/>
+    </inferredMetricsTieBreakers>
 </document>
