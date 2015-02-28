@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.currentUser = [User getUser:@"Mary"];
+    self.currentUser = [User getUser:@"Charles"];
 
     self.titleLabel.text = @"Host your own event";
     self.switchLabel.text = @"Private event";

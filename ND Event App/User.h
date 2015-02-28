@@ -24,5 +24,6 @@
 - (void)saveToDatabase;
 + (User *)getUser:(NSString *)username;
 + (NSArray *)getAllUsers;
+- (BOOL)isFriendsWith:(User *)myFriend;
 
 @end
