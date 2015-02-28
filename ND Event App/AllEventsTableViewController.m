@@ -25,7 +25,12 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Dummy events
-    Event *e1 = 
+    Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"Love a kitteh" andLocation:@"kitteh palace" andStartTime:[NSDate date] andEndTime:[NSDate date]];
+    Event *e2 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"Love a kitteh" andLocation:@"kitteh palace" andStartTime:[NSDate date] andEndTime:[NSDate date]];
+    Event *e3 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"Love a kitteh" andLocation:@"kitteh palace" andStartTime:[NSDate date] andEndTime:[NSDate date]];
+    
+    self.publicEvents = [[NSArray alloc] initWithObjects:e1, e2, e3, nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,26 +41,22 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.publicEvents.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    Event *e = self.publicEvents[indexPath.row];
+    cell.textLabel.text = e.eventTitle;
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
