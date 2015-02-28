@@ -17,6 +17,8 @@
 @property (retain) NSMutableArray *events;
 @property (retain) NSMutableArray *friends;
 
+
+- (void)login:(NSString *)username password:(NSString *)password;
 + (User *)currentUser;
 - (void)signUp;
 - (void)saveToDatabase;

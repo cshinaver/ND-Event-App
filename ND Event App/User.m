@@ -25,6 +25,20 @@
     return (User *)[PFUser currentUser];
 }
 
+- (void)login:(NSString *)username password:(NSString *)password
+{
+    [PFUser logInWithUsernameInBackground:username password:password
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            // Do stuff after successful login.
+                                            NSLog(@"%@", [NSString stringWithFormat:@"Signed in with %@", username]);
+                                        } else {
+                                            // The login failed. Check error to see why.
+                                            NSLog(@"%@", [NSString stringWithFormat:@"Couldn't sign in with %@", username]);
+                                            
+                                        }
+                                    }];
+}
 -(void) saveToDatabase
 {
     [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -57,7 +71,7 @@
 {
     PFQuery *query = [User query];
     [query whereKey:@"username" equalTo:username];
-    [query includeKey:@"Events"];
+    [query includeKey:@"events"];
     [query includeKey:@"friends"];
     NSArray *users = [query findObjects];
     
