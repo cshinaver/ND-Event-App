@@ -10,7 +10,9 @@
 #import <Parse/PFObject+Subclass.h>
 #import <Parse/PFUser.h>
 
-@implementation User
+@implementation User {
+    
+}
 @dynamic fullName;
 @dynamic friends;
 @dynamic events;
@@ -19,6 +21,23 @@
 	[self registerSubclass];
 }
 
++ (User *)currentUser {
+    return (User *)[PFUser currentUser];
+}
+
+- (void)signUp
+{
+    [self signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // Hooray! Let them use the app now.
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            // Show the errorString somewhere and let the user try again.
+            NSLog(@"%@", errorString);
+        }
+    }];
+    
+}
 
 @end
 

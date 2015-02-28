@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "User.h"
+#import "Event.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +27,9 @@
 				  clientKey:@"GCK90Ctew17Nhj02fJM0bOkXen9MIo9GiPDrpcHI"];
 	// [Optional] Track statistics around application opens.
 	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [User registerSubclass];
+    [Event registerSubclass];
 	
     return YES;
 }

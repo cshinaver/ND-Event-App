@@ -24,110 +24,53 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-//	self.currentUser = [[User alloc] init];
-//
-	User *currentUser=[User object];
-	User *friend1=[User object];
-	User *friend2=[User object];
-	//User *friend3=[User object];
-	
-	currentUser.fullName = @"Anna";
-	friend1.fullName = @"Charles";
-	friend2.fullName = @"Mary";
-	currentUser.username = @"amcaewrz1";
-	currentUser.password = @"goirish";
-	friend1.username = @"amcar1z";
-	friend1.password = @"goirish";
-	friend2.username = @"amcas7z1";
-	friend2.password = @"goirish";
-//	
-//	PFRelation *relation = [currentUser relationForKey:@"friend"];
-//	[relation addObject:[PFUser currentUser]];
-//	[relation addObject:[PFUser currentUser]];
-	[friend1 signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-		if (!error) {
-			// Hooray! Let them use the app now.
-		} else {
-			//NSString *errorString = [error userInfo][@"error"];
-			// Show the errorString somewhere and let the user try again.
-		}
-	}];
-	
-	[currentUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-		if (!error) {
-			// Hooray! Let them use the app now.
-		} else {
-			//NSString *errorString = [error userInfo][@"error"];
-			// Show the errorString somewhere and let the user try again.
-		}
-	}];
-	[friend2 signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-		if (!error) {
-			// Hooray! Let them use the app now.
-		} else {
-			//NSString *errorString = [error userInfo][@"error"];
-			// Show the errorString somewhere and let the user try again.
-		}
-	}];
-	
-	PFRelation *relation = [[PFUser currentUser] objectForKey:@"Friendship"];
-	[relation addObject:friend1];
-	
-	
+    //User *user2 = (User *)[User object];
+    //user2.username = @"Mary";
+    //user2.password = @"banana";
+    //user2.email = @"bshinaver@gmail.com";
+    //[user2 signUp];
+    //
+    //User *user3 = (User *)[User object];
+    //user3.username = @"Anna";
+    //user3.password = @"banana";
+    //user3.email = @"cshinaver@gmail.com";
+    //[user3 signUp];
+    
+    User *user1 = (User *)[User object];
+    user1.username = @"Charles";
+    user1.password = @"banana";
+    user1.email = @"gshinaver@gmail.com";
+    
+	PFQuery *query = [User query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                [user1.friends addObject:object];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
 
-	
-//	currentUser = [User objectWithClassName:@"User"];
-//	[currentUser setObject:[User currentUser ] forKey:@"friends"];
-
-	Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date]];
-	e1[@"parent"]= currentUser;
-	[e1 saveInBackground];
-	[currentUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-		if (!error) {
-			// Hooray! Let them use the app now.
-		} else {
-			//NSString *errorString = [error userInfo][@"error"];
-			// Show the errorString somewhere and let the user try again.
-		}
-	}];
-	
-	
+    [user1 signUp];
+    
+  
 	//PFObject *User= [PFObject objectWithClassName:@"User"];
 	//User[@"fullName"] = @"Anna";
 //	//User[@"events"] = @[@"event1", @"event2"];
 //	//User2[@"friends"] = @[@"name1", @"name2"];
 
-//	PFQuery *query = [PFQuery queryWithClassName:@"User"];
 //	[query getObjectInBackgroundWithId:@"xWMyZ4YEGZ" block:^(PFObject *User, NSError *error) {
 //		// Do something with the returned PFObject in the gameScore variable.
 //		NSLog(@"%@", User);
 //	}];
 //	
-	
 
-//    self.currentUser = [[User alloc] init];
-//    User *user1 = [[User alloc] init];
-//
-//    user1.username = @"user1";
-//    user1.fullName = @"Joe Moran";
-//    self.currentUser.friends = [[NSArray alloc] initWithObjects:user1, nil];
-//    Event *event1 = [[Event alloc] init];
-//    event1.eventTitle = @"Party in Dillon";
-//    event1.eventDescription = @"A fun little get together in Dillon ;)";
-//    event1.location = @"Dillon. duh";
-//    NSCalendar *calendar = [[NSCalendar alloc] init];
-//    NSDateComponents *components = [[NSDateComponents alloc] init];
-//    [components setYear: 2015];
-//    [components setMonth: 5];
-//    [components setDay: 22];
-//    [components setHour:20];
-//    [components setMinute:0];
-//    event1.start = [calendar dateFromComponents:components];
-//    [components setHour:23];
-//    [components setMinute:0];
-//    event1.end = [calendar dateFromComponents:components];
-//    user1.events = [NSArray arrayWithObjects: event1, nil];
-//    self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
 }
 
 - (void)didReceiveMemoryWarning {
