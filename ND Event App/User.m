@@ -73,5 +73,24 @@
     
 }
 
+- (BOOL)isFriendsWith:(User *)myFriend
+{
+    User *friend;
+    
+    int i;
+    
+    for (i = 0; i<self.friends.count; i++)
+    {
+        friend = self.friends[i];
+        
+        if ([myFriend isEqual: friend])
+        {
+            return 1;
+        }
+    }
+    
+    return 0;
+}
+
 @end
 

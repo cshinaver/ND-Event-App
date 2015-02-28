@@ -335,6 +335,12 @@
                                     <action selector="addFriend:" destination="mf5-tl-L6R" eventType="touchUpInside" id="fus-rR-pFe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKC-UN-Sdc">
+                                <rect key="frame" x="67" y="455" width="517" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -352,6 +358,7 @@
                         <outlet property="addFriendButton" destination="cgu-My-gqQ" id="0Gt-ml-V8I"/>
                         <outlet property="addFriendLabel" destination="qvw-R1-bsz" id="8vZ-Lm-HrG"/>
                         <outlet property="picker" destination="7Kp-Wp-P8S" id="hTO-7V-cbl"/>
+                        <outlet property="popupLabel" destination="SKC-UN-Sdc" id="Brc-yr-ZUv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zK-ia-BUb" userLabel="First Responder" sceneMemberID="firstResponder"/>

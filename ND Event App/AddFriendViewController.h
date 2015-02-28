@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property (weak, nonatomic) IBOutlet UILabel *addFriendLabel;
+@property (weak, nonatomic) IBOutlet UILabel *popupLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addFriendButton;
 - (IBAction)addFriend:(id)sender;
 
