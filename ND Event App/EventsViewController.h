@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 
-@interface EventsViewController : UIViewController
+@interface EventsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property Event *event;
 
