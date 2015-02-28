@@ -12,7 +12,7 @@
 
 @property NSString *username;
 @property NSString *fullName;
-@property NSArray *events;
+@property NSMutableArray *events;
 @property NSArray *friends;
 
 @end

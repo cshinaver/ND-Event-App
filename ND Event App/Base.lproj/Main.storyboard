@@ -163,6 +163,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="createEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xxh-dK-azq"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eM5-HE-6Br">
                                 <rect key="frame" x="16" y="275" width="42" height="21"/>
@@ -247,7 +250,9 @@
                         <outlet property="endDateLabel" destination="wX5-Cw-y2O" id="837-e7-ecC"/>
                         <outlet property="endTimeLabel" destination="FfT-Bc-TLP" id="KWG-X4-c1Y"/>
                         <outlet property="eventDescriptionLabel" destination="HZR-02-aam" id="kQS-D1-9pi"/>
+                        <outlet property="eventTitleInput" destination="LDW-pU-P7V" id="yp9-uR-iQr"/>
                         <outlet property="eventTitleLabel" destination="ZtC-2n-ZuP" id="1fg-JD-PxV"/>
+                        <outlet property="locationInput" destination="I4S-lD-Sqh" id="Y69-LZ-OjQ"/>
                         <outlet property="locationLabel" destination="eM5-HE-6Br" id="wME-rG-L8X"/>
                         <outlet property="startDateLabel" destination="Vy7-Si-lSz" id="2VY-pO-YZB"/>
                         <outlet property="startTimeLabel" destination="vU7-eM-Sxp" id="dId-N5-Iy9"/>

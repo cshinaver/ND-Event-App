@@ -7,6 +7,7 @@
 //
 
 #import "HostViewController.h"
+#import "Event.h"
 
 @interface HostViewController ()
 
@@ -47,4 +48,22 @@
 }
 */
 
+- (IBAction)createEvent:(id)sender {
+    
+    Event *e = [[Event alloc] init];
+    
+    if (self.theSwitch.isOn)
+    {
+        e.viewStatus = PRIVATE;
+    }
+    
+    else
+    {
+        e.viewStatus = PUBLIC;
+    }
+    
+    e.eventTitle = self.eventTitleInput.text;
+    e.location = self.locationInput.text;
+    
+}
 @end

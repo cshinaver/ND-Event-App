@@ -24,5 +24,11 @@
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *createButton;
 
+@property (weak, nonatomic) IBOutlet UITextField *eventTitleInput;
+@property (weak, nonatomic) IBOutlet UITextField *locationInput;
+
+
+- (IBAction)createEvent:(id)sender;
+
 
 @end
