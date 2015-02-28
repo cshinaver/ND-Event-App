@@ -10,6 +10,13 @@
 #import <Parse/PFObject+Subclass.h>
 
 @implementation Event
+@dynamic  eventTitle;
+@dynamic  eventDescription;
+@dynamic location;
+@dynamic start;
+@dynamic  end;
+@dynamic host, invitees, viewStatus;
+
 + (void)load {
 	[self registerSubclass];
 }
@@ -30,10 +37,5 @@
     }
     return self;
 }
-@dynamic  eventTitle;
-@dynamic  eventDescription;
-@dynamic location;
-@dynamic start;
-@dynamic  end;
 
 @end

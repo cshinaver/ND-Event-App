@@ -11,15 +11,14 @@
 #import <Parse/PFUser.h>
 
 @implementation User
+@dynamic fullName;
+@dynamic friends;
+@dynamic events;
 
 + (void)load {
 	[self registerSubclass];
 }
 
-@dynamic fullName;
-@dynamic friends;
-@dynamic events;
-@dynamic username;
 
 @end
 
