@@ -7,6 +7,7 @@
 //
 
 #import "AllEventsTableViewController.h"
+#import "Event.h"
 
 @interface AllEventsTableViewController ()
 
@@ -22,6 +23,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Dummy events
+    Event *e1 = 
 }
 
 - (void)didReceiveMemoryWarning {

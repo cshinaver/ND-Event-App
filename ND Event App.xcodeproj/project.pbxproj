@@ -19,6 +19,7 @@
 		E98FAE251AA1808800E119C4 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE241AA1808800E119C4 /* HostViewController.m */; };
 		E98FAE281AA1809C00E119C4 /* AllEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE271AA1809C00E119C4 /* AllEventsTableViewController.m */; };
 		E98FAE2B1AA180A500E119C4 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98FAE2A1AA180A500E119C4 /* SettingsTableViewController.m */; };
+		E9B347FD1AA1898600130A43 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B347FC1AA1898600130A43 /* Event.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E98FAE271AA1809C00E119C4 /* AllEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsTableViewController.m; sourceTree = "<group>"; };
 		E98FAE291AA180A500E119C4 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		E98FAE2A1AA180A500E119C4 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		E9B347FC1AA1898600130A43 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				E98FAE1E1AA1800B00E119C4 /* FriendsListTableViewController.m */,
 				1CE9B2A61AA1828300160D0B /* User.h */,
 				1CE9B2A71AA1832E00160D0B /* Event.h */,
+				E9B347FC1AA1898600130A43 /* Event.m */,
 				1CE9B28D1AA1743900160D0B /* Images.xcassets */,
 				1CE9B28F1AA1743900160D0B /* LaunchScreen.xib */,
 				1CE9B2801AA1743900160D0B /* Supporting Files */,
