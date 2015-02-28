@@ -36,29 +36,29 @@
     //user3.email = @"cshinaver@gmail.com";
     //[user3 signUp];
     
-    User *user1 = (User *)[User object];
-    user1.username = @"Charles";
-    user1.password = @"banana";
-    user1.email = @"gshinaver@gmail.com";
-    
-	PFQuery *query = [User query];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                [user1.friends addObject:object];
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-    
-
-    [user1 signUp];
-    
+//    User *user1 = (User *)[User object];
+//    user1.username = @"Charles";
+//    user1.password = @"banana";
+//    user1.email = @"gshinaver@gmail.com";
+//    
+//	PFQuery *query = [User query];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            // The find succeeded.
+//            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+//            // Do something with the found objects
+//            for (PFObject *object in objects) {
+//                [user1.friends addObject:object];
+//            }
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
+//    
+//
+//    [user1 signUp];
+	
   
 	//PFObject *User= [PFObject objectWithClassName:@"User"];
 	//User[@"fullName"] = @"Anna";
