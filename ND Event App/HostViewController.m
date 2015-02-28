@@ -28,8 +28,11 @@
     self.endDateLabel.text = @"End date";
     self.startTimeLabel.text = @"Time";
     self.endTimeLabel.text = @"Time";
+    self.friendsLabel.text = @"Friends";
     self.descriptionTextView.layer.borderWidth = 1.0;
     self.descriptionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.friendsTextView.layer.borderWidth = 1.0;
+    self.friendsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     [self.createButton setTitle:@"Create event" forState:UIControlStateNormal];
 }
 
@@ -64,6 +67,9 @@
     
     e.eventTitle = self.eventTitleInput.text;
     e.location = self.locationInput.text;
+    
+    
+    
     
 }
 @end
