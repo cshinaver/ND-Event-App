@@ -14,6 +14,7 @@
 		1CE9B2911AA1743900160D0B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9B28F1AA1743900160D0B /* LaunchScreen.xib */; };
 		1CE9B29D1AA1743900160D0B /* ND_Event_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B29C1AA1743900160D0B /* ND_Event_AppTests.m */; };
 		1CE9B2AA1AA1898400160D0B /* FriendsEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */; };
+		1CE9B2AC1AA195CE00160D0B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2AB1AA195CE00160D0B /* User.m */; };
 		95F965011AA18B5C007D4CF8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F964FF1AA18B5C007D4CF8 /* Bolts.framework */; };
 		95F965021AA18B5C007D4CF8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F965001AA18B5C007D4CF8 /* Parse.framework */; };
 		95F965051AA18B91007D4CF8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F965041AA18B91007D4CF8 /* AudioToolbox.framework */; };
@@ -60,6 +61,7 @@
 		1CE9B2A71AA1832E00160D0B /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		1CE9B2A81AA1898400160D0B /* FriendsEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsEventsTableViewController.h; sourceTree = "<group>"; };
 		1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsEventsTableViewController.m; sourceTree = "<group>"; };
+		1CE9B2AB1AA195CE00160D0B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		95F964FF1AA18B5C007D4CF8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		95F965001AA18B5C007D4CF8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		95F965041AA18B91007D4CF8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -153,6 +155,7 @@
 				E98FAE1D1AA1800B00E119C4 /* FriendsListTableViewController.h */,
 				E98FAE1E1AA1800B00E119C4 /* FriendsListTableViewController.m */,
 				1CE9B2A61AA1828300160D0B /* User.h */,
+				1CE9B2AB1AA195CE00160D0B /* User.m */,
 				1CE9B2A71AA1832E00160D0B /* Event.h */,
 				E9B347FC1AA1898600130A43 /* Event.m */,
 				1CE9B28D1AA1743900160D0B /* Images.xcassets */,
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE9B2AC1AA195CE00160D0B /* User.m in Sources */,
 				E9B347FE1AA1937900130A43 /* Event.m in Sources */,
 				E98FAE2B1AA180A500E119C4 /* SettingsTableViewController.m in Sources */,
 				E98FAE251AA1808800E119C4 /* HostViewController.m in Sources */,

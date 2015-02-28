@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef ND_Event_App_User_h
-#define ND_Event_App_User_h
-
 @interface User : NSObject
 
 @property NSString *username;
@@ -19,5 +16,3 @@
 @property NSArray *friends;
 
 @end
-
-#endif
