@@ -15,6 +15,7 @@
 @property NSString *location;
 @property NSDate *start;
 @property NSDate *end;
+@property NSArray *invitees;
 
 - (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(NSString *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end;
 
