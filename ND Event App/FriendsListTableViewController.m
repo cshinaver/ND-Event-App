@@ -28,7 +28,7 @@
     Event *event1 = [[Event alloc] init];
     event1.eventTitle = @"Party in Dillon";
     event1.eventDescription = @"A fun little get together in Dillon ;) I am making this description extra long in order to test how it is formatted on the screen";
-    event1.location = @"Dillon. duh";
+    event1.location = [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733];
     event1.host = user1;
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];

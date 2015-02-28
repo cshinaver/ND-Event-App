@@ -30,7 +30,11 @@
     // Set delegate
     self.mapView.delegate = self;
     
+    // Allocate space to array
+    events = [[NSMutableArray alloc] init];
+    
     self.currentUser = [[User alloc] init];
+    self.currentUser.fullName = @"Charles Shinaver";
     User *user1 = [[User alloc] init];
     user1.username = @"user1";
     user1.fullName = @"Joe Moran";
@@ -38,7 +42,8 @@
     Event *event1 = [[Event alloc] init];
     event1.eventTitle = @"Party in Dillon";
     event1.eventDescription = @"A fun little get together in Dillon ;)";
-    event1.location = @"Dillon. duh";
+    event1.location = [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733];
+    event1.invitees = [[NSArray alloc] initWithObjects:self.currentUser.fullName, nil];
     NSCalendar *calendar = [[NSCalendar alloc] init];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setYear: 2015];
@@ -74,6 +79,24 @@
         }
         
     }
+    
+    // Create points for each event
+    for (Event *e in events)
+    {
+        [self createAnnotationWithCoordinate:[e.location coordinate] andTitle:e.eventTitle andSubtitle:e.eventDescription];
+    }
+}
+
+-(void)createAnnotationWithCoordinate:(CLLocationCoordinate2D)coordinate andTitle:(NSString *)title andSubtitle:(NSString *)subtitle
+{
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = coordinate;
+    point.title = title;
+    point.subtitle = subtitle;
+    
+    [self.mapView addAnnotation:point];
+                                
+                                
 }
 
 
