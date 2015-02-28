@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6xL-xv-EwS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6xL-xv-EwS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -308,29 +308,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hjW-hF-mKP">
-                                <rect key="frame" x="67" y="136" width="277" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="277" id="k3C-sJ-Oc0"/>
-                                    <constraint firstAttribute="height" constant="30" id="uia-YZ-pDo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvw-R1-bsz">
                                 <rect key="frame" x="67" y="59" width="208" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="208" id="69T-Na-FJk"/>
-                                    <constraint firstAttribute="height" constant="40" id="QJ3-5S-bTY"/>
+                                    <constraint firstAttribute="height" constant="40" id="1K3-er-fCT"/>
+                                    <constraint firstAttribute="width" constant="208" id="Lzm-ig-ohW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgu-My-gqQ">
-                                <rect key="frame" x="194" y="185" width="212" height="51"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Kp-Wp-P8S">
+                                <rect key="frame" x="-71" y="137" width="671" height="162"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgu-My-gqQ">
+                                <rect key="frame" x="150" y="340" width="212" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="212" id="dAT-Bo-5Fl"/>
+                                    <constraint firstAttribute="height" constant="51" id="79l-tH-4p9"/>
+                                    <constraint firstAttribute="width" constant="212" id="Pfo-0O-UTF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Button">
@@ -343,20 +338,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hjW-hF-mKP" firstAttribute="leading" secondItem="qvw-R1-bsz" secondAttribute="leading" id="18o-D4-sPh"/>
-                            <constraint firstItem="hjW-hF-mKP" firstAttribute="top" secondItem="qvw-R1-bsz" secondAttribute="bottom" constant="37" id="47l-J5-4fq"/>
-                            <constraint firstItem="cgu-My-gqQ" firstAttribute="centerX" secondItem="wak-Tf-bj1" secondAttribute="centerX" id="TrF-hd-K4A"/>
-                            <constraint firstItem="8SC-Z3-fMF" firstAttribute="top" secondItem="cgu-My-gqQ" secondAttribute="bottom" constant="297" id="aQF-NY-iNW"/>
-                            <constraint firstItem="qvw-R1-bsz" firstAttribute="top" secondItem="eKm-dX-hq0" secondAttribute="bottom" constant="39" id="dw9-Pa-271"/>
-                            <constraint firstItem="qvw-R1-bsz" firstAttribute="leading" secondItem="wak-Tf-bj1" secondAttribute="leadingMargin" constant="51" id="kwh-Oa-Gzu"/>
-                            <constraint firstItem="cgu-My-gqQ" firstAttribute="top" secondItem="hjW-hF-mKP" secondAttribute="bottom" constant="37" id="taJ-lA-uwg"/>
+                            <constraint firstItem="7Kp-Wp-P8S" firstAttribute="top" secondItem="qvw-R1-bsz" secondAttribute="bottom" constant="38" id="2hv-Hc-Uli"/>
+                            <constraint firstItem="7Kp-Wp-P8S" firstAttribute="leading" secondItem="wak-Tf-bj1" secondAttribute="leadingMargin" constant="-87" id="2j5-Pr-ckb"/>
+                            <constraint firstItem="cgu-My-gqQ" firstAttribute="top" secondItem="7Kp-Wp-P8S" secondAttribute="bottom" constant="41" id="Ceq-Q5-lUe"/>
+                            <constraint firstItem="cgu-My-gqQ" firstAttribute="leading" secondItem="wak-Tf-bj1" secondAttribute="leading" constant="150" id="Cl2-kn-RoY"/>
+                            <constraint firstItem="qvw-R1-bsz" firstAttribute="leading" secondItem="wak-Tf-bj1" secondAttribute="leadingMargin" constant="51" id="h3f-oU-nK2"/>
+                            <constraint firstItem="qvw-R1-bsz" firstAttribute="top" secondItem="eKm-dX-hq0" secondAttribute="bottom" constant="39" id="lYB-vb-3lf"/>
+                            <constraint firstAttribute="trailing" secondItem="7Kp-Wp-P8S" secondAttribute="trailing" id="tHP-M3-X1H"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Friend" id="HUa-yr-tsS"/>
                     <connections>
                         <outlet property="addFriendButton" destination="cgu-My-gqQ" id="0Gt-ml-V8I"/>
                         <outlet property="addFriendLabel" destination="qvw-R1-bsz" id="8vZ-Lm-HrG"/>
-                        <outlet property="addFriendTextField" destination="hjW-hF-mKP" id="HH0-2a-V2o"/>
+                        <outlet property="picker" destination="7Kp-Wp-P8S" id="hTO-7V-cbl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zK-ia-BUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
