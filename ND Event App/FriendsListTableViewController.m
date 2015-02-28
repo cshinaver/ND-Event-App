@@ -19,11 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    User *currentUser = [[User alloc] init];
+    self.currentUser = [[User alloc] init];
     User *user1 = [[User alloc] init];
-    currentUser.friends = [NSArray arrayWithObjects: user1, nil];
     user1.username = @"user1";
     user1.fullName = @"Joe Moran";
+    self.currentUser.friends = [[NSArray alloc] initWithObjects:user1, nil];
     Event *event1 = [[Event alloc] init];
     event1.eventTitle = @"Party in Dillon";
     event1.eventDescription = @"A fun little get together in Dillon ;)";
@@ -51,12 +51,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return self.currentUser.friends.count;
 }
