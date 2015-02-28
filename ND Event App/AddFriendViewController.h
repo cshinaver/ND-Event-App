@@ -12,5 +12,9 @@
 @interface AddFriendViewController : UIViewController
 
 @property User *currentUser;
+@property (weak, nonatomic) IBOutlet UILabel *addFriendLabel;
+@property (weak, nonatomic) IBOutlet UITextField *addFriendTextField;
+@property (weak, nonatomic) IBOutlet UIButton *addFriendButton;
+- (IBAction)addFriend:(id)sender;
 
 @end

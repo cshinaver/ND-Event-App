@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.addFriendLabel.text = @"Enter username:";
+    [self.addFriendButton setTitle:@"Add friend!" forState:UIControlStateNormal];
     // Do any additional setup after loading the view.
 }
 
@@ -34,4 +37,7 @@
 }
 */
 
+- (IBAction)addFriend:(id)sender {
+    
+}
 @end

@@ -309,10 +309,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hjW-hF-mKP">
-                                <rect key="frame" x="67" y="179" width="277" height="30"/>
+                                <rect key="frame" x="67" y="136" width="277" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="277" id="EJz-9j-v6L"/>
-                                    <constraint firstAttribute="height" constant="30" id="f2m-X2-htC"/>
+                                    <constraint firstAttribute="width" constant="277" id="k3C-sJ-Oc0"/>
+                                    <constraint firstAttribute="height" constant="30" id="uia-YZ-pDo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -320,44 +320,44 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvw-R1-bsz">
                                 <rect key="frame" x="67" y="59" width="208" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="208" id="C8h-LL-QZG"/>
-                                    <constraint firstAttribute="height" constant="40" id="eUQ-e3-OF2"/>
+                                    <constraint firstAttribute="width" constant="208" id="69T-Na-FJk"/>
+                                    <constraint firstAttribute="height" constant="40" id="QJ3-5S-bTY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlJ-6t-HE8">
-                                <rect key="frame" x="67" y="127" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgu-My-gqQ">
-                                <rect key="frame" x="247" y="240" width="107" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgu-My-gqQ">
+                                <rect key="frame" x="194" y="185" width="212" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="107" id="EZU-wt-0xJ"/>
+                                    <constraint firstAttribute="width" constant="212" id="dAT-Bo-5Fl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addFriend:" destination="mf5-tl-L6R" eventType="touchUpInside" id="fus-rR-pFe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cgu-My-gqQ" firstAttribute="top" secondItem="hjW-hF-mKP" secondAttribute="bottom" constant="31" id="LH8-KV-6ph"/>
-                            <constraint firstItem="qvw-R1-bsz" firstAttribute="leading" secondItem="RlJ-6t-HE8" secondAttribute="leading" id="M5F-Fa-sRH"/>
-                            <constraint firstItem="cgu-My-gqQ" firstAttribute="centerX" secondItem="wak-Tf-bj1" secondAttribute="centerX" id="MKT-IZ-L99"/>
-                            <constraint firstItem="8SC-Z3-fMF" firstAttribute="top" secondItem="cgu-My-gqQ" secondAttribute="bottom" constant="260" id="PHQ-6l-2l9"/>
-                            <constraint firstItem="qvw-R1-bsz" firstAttribute="top" secondItem="eKm-dX-hq0" secondAttribute="bottom" constant="39" id="S86-jt-eJg"/>
-                            <constraint firstItem="RlJ-6t-HE8" firstAttribute="top" secondItem="qvw-R1-bsz" secondAttribute="bottom" constant="28" id="arm-rr-DhV"/>
-                            <constraint firstItem="hjW-hF-mKP" firstAttribute="top" secondItem="RlJ-6t-HE8" secondAttribute="bottom" constant="31" id="mz9-eg-gbU"/>
-                            <constraint firstItem="RlJ-6t-HE8" firstAttribute="leading" secondItem="hjW-hF-mKP" secondAttribute="leading" id="oIJ-hl-BCg"/>
-                            <constraint firstItem="qvw-R1-bsz" firstAttribute="leading" secondItem="wak-Tf-bj1" secondAttribute="leadingMargin" constant="51" id="pOH-Qi-vAF"/>
+                            <constraint firstItem="hjW-hF-mKP" firstAttribute="leading" secondItem="qvw-R1-bsz" secondAttribute="leading" id="18o-D4-sPh"/>
+                            <constraint firstItem="hjW-hF-mKP" firstAttribute="top" secondItem="qvw-R1-bsz" secondAttribute="bottom" constant="37" id="47l-J5-4fq"/>
+                            <constraint firstItem="cgu-My-gqQ" firstAttribute="centerX" secondItem="wak-Tf-bj1" secondAttribute="centerX" id="TrF-hd-K4A"/>
+                            <constraint firstItem="8SC-Z3-fMF" firstAttribute="top" secondItem="cgu-My-gqQ" secondAttribute="bottom" constant="297" id="aQF-NY-iNW"/>
+                            <constraint firstItem="qvw-R1-bsz" firstAttribute="top" secondItem="eKm-dX-hq0" secondAttribute="bottom" constant="39" id="dw9-Pa-271"/>
+                            <constraint firstItem="qvw-R1-bsz" firstAttribute="leading" secondItem="wak-Tf-bj1" secondAttribute="leadingMargin" constant="51" id="kwh-Oa-Gzu"/>
+                            <constraint firstItem="cgu-My-gqQ" firstAttribute="top" secondItem="hjW-hF-mKP" secondAttribute="bottom" constant="37" id="taJ-lA-uwg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Friend" id="HUa-yr-tsS"/>
+                    <connections>
+                        <outlet property="addFriendButton" destination="cgu-My-gqQ" id="0Gt-ml-V8I"/>
+                        <outlet property="addFriendLabel" destination="qvw-R1-bsz" id="8vZ-Lm-HrG"/>
+                        <outlet property="addFriendTextField" destination="hjW-hF-mKP" id="HH0-2a-V2o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zK-ia-BUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
