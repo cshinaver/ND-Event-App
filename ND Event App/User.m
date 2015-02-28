@@ -7,7 +7,19 @@
 //
 
 #import "User.h"
+#import <Parse/PFObject+Subclass.h>
+#import <Parse/PFUser.h>
 
 @implementation User
 
++ (void)load {
+	[self registerSubclass];
+}
+
+@dynamic fullName;
+@dynamic friends;
+@dynamic events;
+@dynamic username;
+
 @end
+

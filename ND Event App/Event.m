@@ -7,8 +7,16 @@
 //
 
 #import "Event.h"
+#import <Parse/PFObject+Subclass.h>
 
 @implementation Event
++ (void)load {
+	[self registerSubclass];
+}
+
++ (NSString *)parseClassName {
+	return @"Event";
+}
 
 - (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end
 {
@@ -22,5 +30,10 @@
     }
     return self;
 }
+@dynamic  eventTitle;
+@dynamic  eventDescription;
+@dynamic location;
+@dynamic start;
+@dynamic  end;
 
 @end

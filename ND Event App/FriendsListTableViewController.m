@@ -10,6 +10,10 @@
 #import "User.h"
 #import "Event.h"
 #import "FriendsEventsTableViewController.h"
+#import <Parse/Parse.h>
+#import <Parse/PFSubclassing.h>
+
+#import <Parse/PFObject.h>
 
 @interface FriendsListTableViewController ()
 
@@ -19,39 +23,111 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.currentUser = [[User alloc] init];
-    User *user1 = [[User alloc] init];
-    user1.username = @"user1";
-    user1.fullName = @"Joe Moran";
-    self.currentUser.friends = [[NSArray alloc] initWithObjects:user1, nil];
-    Event *event1 = [[Event alloc] init];
-    event1.eventTitle = @"Party in Dillon";
-    event1.eventDescription = @"A fun little get together in Dillon ;) I am making this description extra long in order to test how it is formatted on the screen";
-    event1.location = [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733];
-    event1.host = user1;
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
+	
+//	self.currentUser = [[User alloc] init];
+//
+	User *currentUser=[User object];
+	User *friend1=[User object];
+	User *friend2=[User object];
+	//User *friend3=[User object];
+	
+	currentUser.fullName = @"Anna";
+	friend1.fullName = @"Charles";
+	friend2.fullName = @"Mary";
+	currentUser.username = @"amcaewrz1";
+	currentUser.password = @"goirish";
+	friend1.username = @"amcar1z";
+	friend1.password = @"goirish";
+	friend2.username = @"amcas7z1";
+	friend2.password = @"goirish";
+//	
+//	PFRelation *relation = [currentUser relationForKey:@"friend"];
+//	[relation addObject:[PFUser currentUser]];
+//	[relation addObject:[PFUser currentUser]];
+	[friend1 signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+		if (!error) {
+			// Hooray! Let them use the app now.
+		} else {
+			NSString *errorString = [error userInfo][@"error"];
+			// Show the errorString somewhere and let the user try again.
+		}
+	}];
+	
+	[currentUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+		if (!error) {
+			// Hooray! Let them use the app now.
+		} else {
+			NSString *errorString = [error userInfo][@"error"];
+			// Show the errorString somewhere and let the user try again.
+		}
+	}];
+	[friend2 signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+		if (!error) {
+			// Hooray! Let them use the app now.
+		} else {
+			NSString *errorString = [error userInfo][@"error"];
+			// Show the errorString somewhere and let the user try again.
+		}
+	}];
+	
+	PFRelation *relation = [[PFUser currentUser] objectForKey:@"Friendship"];
+	[relation addObject:friend1];
+	
+	
 
-    [components setYear: 2015];
-    [components setMonth: 5];
-    [components setDay: 22];
-    [components setHour:20];
-    [components setMinute:0];
-    
-    event1.start = [calendar dateFromComponents:components];
+	
+//	currentUser = [User objectWithClassName:@"User"];
+//	[currentUser setObject:[User currentUser ] forKey:@"friends"];
 
-    [components setYear: 2015];
-    [components setMonth: 5];
-    [components setDay: 22];
-    [components setHour:23];
-    [components setMinute:0];
-    
-    event1.end = [calendar dateFromComponents:components];
-    
-    user1.events = [NSArray arrayWithObjects: event1, nil];
-    self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
+	Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:@"Kitteh town" andStartTime:[NSDate date] andEndTime:[NSDate date]];
+	e1[@"parent"]= currentUser;
+	[e1 saveInBackground];
+	[currentUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+		if (!error) {
+			// Hooray! Let them use the app now.
+		} else {
+			NSString *errorString = [error userInfo][@"error"];
+			// Show the errorString somewhere and let the user try again.
+		}
+	}];
+	
+	
+	//PFObject *User= [PFObject objectWithClassName:@"User"];
+	//User[@"fullName"] = @"Anna";
+//	//User[@"events"] = @[@"event1", @"event2"];
+//	//User2[@"friends"] = @[@"name1", @"name2"];
+
+//	PFQuery *query = [PFQuery queryWithClassName:@"User"];
+//	[query getObjectInBackgroundWithId:@"xWMyZ4YEGZ" block:^(PFObject *User, NSError *error) {
+//		// Do something with the returned PFObject in the gameScore variable.
+//		NSLog(@"%@", User);
+//	}];
+//	
+	
+
+//    self.currentUser = [[User alloc] init];
+//    User *user1 = [[User alloc] init];
+//
+//    user1.username = @"user1";
+//    user1.fullName = @"Joe Moran";
+//    self.currentUser.friends = [[NSArray alloc] initWithObjects:user1, nil];
+//    Event *event1 = [[Event alloc] init];
+//    event1.eventTitle = @"Party in Dillon";
+//    event1.eventDescription = @"A fun little get together in Dillon ;)";
+//    event1.location = @"Dillon. duh";
+//    NSCalendar *calendar = [[NSCalendar alloc] init];
+//    NSDateComponents *components = [[NSDateComponents alloc] init];
+//    [components setYear: 2015];
+//    [components setMonth: 5];
+//    [components setDay: 22];
+//    [components setHour:20];
+//    [components setMinute:0];
+//    event1.start = [calendar dateFromComponents:components];
+//    [components setHour:23];
+//    [components setMinute:0];
+//    event1.end = [calendar dateFromComponents:components];
+//    user1.events = [NSArray arrayWithObjects: event1, nil];
+//    self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,23 +141,23 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return self.currentUser.friends.count;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    User *u = self.currentUser.friends[indexPath.row];
-    
-    cell.textLabel.text = u.username;
-    
-    return cell;
-}
-
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    // Return the number of rows in the section.
+//    return self.currentUser.friends.count;
+//}
+//
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    
+//    // Configure the cell...
+//    User *u = self.currentUser.friends[indexPath.row];
+//    
+//    cell.textLabel.text = u.username;
+//    
+//    return cell;
+//}
+//
 
 /*
 // Override to support conditional editing of the table view.
@@ -126,10 +202,14 @@
     // Pass the selected object to the new view controller.
     
     FriendsEventsTableViewController *fe = [segue destinationViewController];
-    User *u = self.currentUser.friends[self.tableView.indexPathForSelectedRow.row];
-    fe.events = u.events;
+   // User *u = self.currentUser.friends[self.tableView.indexPathForSelectedRow.row];
+   // fe.events = u.events;
  
 }
+
+
+
+
 
 
 @end

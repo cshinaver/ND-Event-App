@@ -9,14 +9,17 @@
 #import<Foundation/Foundation.h>
 #import "User.h"
 #import <MapKit/MapKit.h>
+#import <Parse/PFSubclassing.h>
+#import <Parse/PFObject.h>
 
-@interface Event : NSObject
+@interface Event : PFObject<PFSubclassing>
 
 enum {
     PRIVATE,
     PUBLIC
 };
 
++(NSString*)parseClassName;
 @property NSString *eventTitle;
 @property User *host;
 @property CLLocation *location;
