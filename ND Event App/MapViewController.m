@@ -7,8 +7,11 @@
 //
 
 #import "MapViewController.h"
+#import <MapKit/MapKit.h>
 
-@interface MapViewController ()
+@interface MapViewController () {
+    CLLocationManager *lm;
+}
 
 @end
 
@@ -17,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // Get location permission
+    lm = [CLLocationManager new];
+    [lm requestWhenInUseAuthorization];
 }
 
 - (void)didReceiveMemoryWarning {
