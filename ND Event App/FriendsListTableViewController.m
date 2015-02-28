@@ -48,7 +48,7 @@
 		if (!error) {
 			// Hooray! Let them use the app now.
 		} else {
-			NSString *errorString = [error userInfo][@"error"];
+			//NSString *errorString = [error userInfo][@"error"];
 			// Show the errorString somewhere and let the user try again.
 		}
 	}];
@@ -57,7 +57,7 @@
 		if (!error) {
 			// Hooray! Let them use the app now.
 		} else {
-			NSString *errorString = [error userInfo][@"error"];
+			//NSString *errorString = [error userInfo][@"error"];
 			// Show the errorString somewhere and let the user try again.
 		}
 	}];
@@ -65,7 +65,7 @@
 		if (!error) {
 			// Hooray! Let them use the app now.
 		} else {
-			NSString *errorString = [error userInfo][@"error"];
+			//NSString *errorString = [error userInfo][@"error"];
 			// Show the errorString somewhere and let the user try again.
 		}
 	}];
@@ -79,14 +79,14 @@
 //	currentUser = [User objectWithClassName:@"User"];
 //	[currentUser setObject:[User currentUser ] forKey:@"friends"];
 
-	Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:@"Kitteh town" andStartTime:[NSDate date] andEndTime:[NSDate date]];
+	Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date]];
 	e1[@"parent"]= currentUser;
 	[e1 saveInBackground];
 	[currentUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 		if (!error) {
 			// Hooray! Let them use the app now.
 		} else {
-			NSString *errorString = [error userInfo][@"error"];
+			//NSString *errorString = [error userInfo][@"error"];
 			// Show the errorString somewhere and let the user try again.
 		}
 	}];
