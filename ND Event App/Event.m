@@ -10,7 +10,15 @@
 
 @implementation Event
 
-- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end
++ (void)load {
+	[self registerSubclass];
+}
+
++ (NSString *)parseClassName {
+	return @"Event";
+}
+
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus
 {
     self = [super init];
     if(self) {

@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.currentUser = [User getUser:@"Mary"];
 
     self.titleLabel.text = @"Host your own event";
     self.switchLabel.text = @"Private event";
@@ -53,12 +55,8 @@
 
 - (IBAction)createEvent:(id)sender {
     
-    self.currentUser = [[User alloc] init];
-    self.currentUser.fullName = @"PEMCo";
-    self.currentUser.username = @"PEM";
-    self.currentUser.events = [[NSMutableArray alloc] initWithObjects:nil];
     
-    Event *e = [[Event alloc] init];
+    Event *e = [[Event alloc] initWithClassName:@"Event"];
     
     if (self.theSwitch.isOn)
     {
@@ -101,8 +99,35 @@
     [workingSet addCharactersInString:@" ,\n"];
     NSCharacterSet *finalCharacterSet = [workingSet copy];
     e.invitees = [self.friendsTextView.text componentsSeparatedByCharactersInSet: finalCharacterSet];
+    
+    // Add event to user's events
+    [self.currentUser.events addObject:e];
+    // Save user
+    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+            NSLog(@"Saved user with event");
+        } else {
+            // There was a problem, check error.description
+            NSLog(@"Not so saved...");
+        }
+    }];
+    
+    // Save event
+    [e saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+            NSLog(@"Added event");
+        } else {
+            // There was a problem, check error.description
+            NSLog(@"Not so saved...");
+        }
+    }];
+    
+    
 
-    [self.currentUser.events addObject: e];
     
 }
 @end

@@ -10,9 +10,8 @@
 
 @interface User : NSObject
 
-@property NSString *username;
-@property NSString *fullName;
-@property NSMutableArray *events;
-@property NSArray *friends;
+@property (retain) NSString *fullName;
+@property (retain) NSMutableArray *events;
+@property (retain) NSMutableArray *friends;
 
 @end
