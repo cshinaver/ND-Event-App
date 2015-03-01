@@ -152,5 +152,24 @@
     
     [self presentViewController:self.alert animated:YES completion:nil];
     
+    [self POSTRequest];
+    
 }
+
+- (void) POSTRequest {
+    NSString *post = [NSString stringWithFormat:@"From=%@&To=%@Body=%@", @"+14439918722", self.currentUser.phoneNumber, @"Your event has been created"];
+    
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"https://api.twilio.com/2010-04-10/Accounts/ACdf37f51e05545f38f847732fd43dda28/Messages"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
+}
+
 @end
