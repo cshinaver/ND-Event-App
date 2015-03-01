@@ -43,7 +43,7 @@
     // Create points for each event
     for (Event *e in events)
     {
-        [self createAnnotationWithCoordinate:[[[CLLocation alloc] initWithLatitude:e.location.latitude longitude:e.location.longitude] coordinate] andTitle:e.eventTitle andSubtitle:e.eventDescription];
+        [self createAnnotationWithCoordinate:[[[CLLocation alloc] initWithLatitude:e.location.latitude longitude:e.location.longitude] coordinate] andTitle:e.eventTitle andSubtitle:e.host.username];
     }
 }
 
