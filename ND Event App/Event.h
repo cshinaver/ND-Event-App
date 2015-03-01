@@ -33,5 +33,6 @@ enum {
 - (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus;
 
 -(void)saveToDatabase;
++(NSArray *)getAllPublicEvents;
 @end
 

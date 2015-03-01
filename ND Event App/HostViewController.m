@@ -82,7 +82,7 @@
     
     eventTitle = self.eventTitleInput.text;
     
-    eventDescription = self.eventDescriptionLabel.text;
+    eventDescription = self.descriptionTextView.text;
 
     host = self.currentUser;
     

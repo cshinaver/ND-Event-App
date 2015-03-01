@@ -8,6 +8,7 @@
 
 #import "Event.h"
 #import <Parse/PFObject+Subclass.h>
+#import <Parse/PFQuery.h>
 
 @implementation Event
 @dynamic  eventTitle;
@@ -53,6 +54,17 @@
         self.viewStatus = viewStatus;
     }
     return self;
+}
+
++ (NSArray *)getAllPublicEvents
+{
+    PFQuery *query = [Event query];
+    [query whereKey:@"viewStatus" equalTo:@"0"];
+    [query includeKey:@"Invitees"];
+    NSArray *events =  [query findObjects];
+    
+    return events;
+    
 }
 
 @end
