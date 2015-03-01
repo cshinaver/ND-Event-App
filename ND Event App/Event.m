@@ -58,9 +58,9 @@
 
 + (NSArray *)getAllPublicEvents
 {
-    PFQuery *query = [Event query];
-    [query whereKey:@"viewStatus" equalTo:@"0"];
-    [query includeKey:@"Invitees"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"viewStatus" equalTo:@0];
+    //[query includeKey:@"Invitees"];
     NSArray *events =  [query findObjects];
     
     return events;
