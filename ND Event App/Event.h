@@ -7,11 +7,11 @@
 //
 
 #import<Foundation/Foundation.h>
-#import "User.h"
 #import <MapKit/MapKit.h>
 #import <Parse/PFSubclassing.h>
 #import <Parse/PFObject.h>
 #import <Parse/PFGeoPoint.h>
+#import "User.h"
 
 @interface Event : PFObject<PFSubclassing>
 
@@ -29,10 +29,12 @@ enum {
 @property User *host;
 @property NSMutableArray *invitees;
 @property int viewStatus;
+@property NSMutableArray *checkedIn;
 
-- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(PFGeoPoint *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus;
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(PFGeoPoint *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus andCheckedIn:(NSMutableArray *)checkedIn;
 
 -(void)saveToDatabase;
 +(NSArray *)getAllPublicEvents;
-@end
+-(BOOL)userIsCheckedIn:(User *)u;
 
+@end

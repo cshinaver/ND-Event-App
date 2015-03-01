@@ -46,7 +46,7 @@
     // Memory to invitees
     self.invitees = [NSMutableArray new];
     self.e = [Event new];
-
+    self.e.checkedIn = [NSMutableArray new];
 }
 
 

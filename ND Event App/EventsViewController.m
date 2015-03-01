@@ -19,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.currentUser = [User currentUser];
+    
     self.eventDescription.numberOfLines = 0;
     [self.eventDescription sizeToFit];
     
@@ -49,6 +51,16 @@
     self.location.text = [NSString stringWithFormat:@"Location: %@", arr[0][@"LocationName"]];
     
     self.eventDescription.text = [NSString stringWithFormat:@"Description: %@", self.event.eventDescription];
+    if ([self.event userIsCheckedIn:self.currentUser])
+    {
+        [self.theSwitch setOn:YES];
+    }
+    else
+    {
+        [self.theSwitch setOn:NO];
+    }
+    
+    self.nCheckedInLabel.text = [NSString stringWithFormat:@"Number of users checked in: %lu", (unsigned long)self.event.checkedIn.count];
     
 }
 
@@ -66,5 +78,40 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)checkedInButton:(id)sender {
+    
+    if (self.theSwitch.isOn)
+    {
+        [self.theSwitch setOn:YES];
+        
+        if(![self.event userIsCheckedIn:self.currentUser])
+        {
+            [self.event.checkedIn addObject:self.currentUser];
+        }
+    }
+    
+    else if (!(self.theSwitch.isOn))
+    {
+        [self.theSwitch setOn:NO];
+        
+        if ([self.event userIsCheckedIn:self.currentUser])
+        {
+            [self.event.checkedIn removeObject:self.currentUser];
+        }
+    }
+    
+    [self.event saveToDatabase];
+    
+    self.nCheckedInLabel.text = [NSString stringWithFormat:@"Number of users checked in: %lu", (unsigned long)self.event.checkedIn.count];
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    //self.currentUser = [User currentUser];
+    
+    self.nCheckedInLabel.text = [NSString stringWithFormat:@"Number of users checked in: %lu", (unsigned long)self.event.checkedIn.count];
+}
 
 @end
