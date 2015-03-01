@@ -39,10 +39,12 @@
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
     NSArray *events = [self.currentUser getInvitedEvents];
+    events = [events arrayByAddingObjectsFromArray:[Event getAllPublicEvents]];
     
     // Create points for each event
     for (Event *e in events)
     {
+        [e.host fetch];
         [self createAnnotationWithCoordinate:[[[CLLocation alloc] initWithLatitude:e.location.latitude longitude:e.location.longitude] coordinate] andTitle:e.eventTitle andSubtitle:e.host.username];
     }
 }
