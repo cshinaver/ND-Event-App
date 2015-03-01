@@ -7,6 +7,7 @@
 //
 
 #import "signUpViewController.h"
+#import "User.h"
 
 @interface signUpViewController ()
 
@@ -18,7 +19,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -34,4 +38,20 @@
 }
 */
 
+- (IBAction)createAccount:(id)sender {
+    User *new = (User *)[User object];
+    new.username = self.usernameTextField.text;
+    new.password = self.passwordTextField.text;
+    new.phoneNumber = self.phoneNumberTextField.text;
+    new.email = self.emailTextField.text;
+    new.events = [NSMutableArray new];
+    new.friends = [NSMutableArray new];
+    
+    
+    [new signUp:nil];
+    [User login:new.username password:new.password];
+    [User getUser:new.username];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "loginViewController.h"
+#import "User.h"
 
 @interface loginViewController ()
 
@@ -17,6 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([PFUser currentUser])
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +46,11 @@
 }
 */
 
+- (IBAction)login:(id)sender {
+    [User login:self.usernameTextField.text password:self.passwordTextField.text];
+    [User getUser:self.usernameTextField.text];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 @end

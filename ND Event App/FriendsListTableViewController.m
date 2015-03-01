@@ -32,13 +32,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if (self.currentUser) {
+    if ([PFUser currentUser]) {
         // do stuff with the user
         NSLog(@"%@ logged in", self.currentUser.username);
+        self.currentUser = [User getUser:[User currentUser].username];
 
     } else {
-        [User login:@"Charles" password:@"hi"];
-        self.currentUser = [User getUser:@"Charles"];
+        [self performSegueWithIdentifier:@"segue.login" sender:self];
     }
 }
 
@@ -113,10 +113,14 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    FriendsEventsTableViewController *fe = [segue destinationViewController];
-    User *u = self.currentUser.friends[self.tableView.indexPathForSelectedRow.row];
-    
-    fe.events = [self.currentUser getInvitedEventsFromFriend:u];
+    UIViewController *vc = [segue destinationViewController];
+    if (![vc.title isEqualToString:@"Login"])
+    {
+        FriendsEventsTableViewController *fe = [segue destinationViewController];
+        User *u = self.currentUser.friends[self.tableView.indexPathForSelectedRow.row];
+        
+        fe.events = [self.currentUser getInvitedEventsFromFriend:u];
+    }
     
     
     

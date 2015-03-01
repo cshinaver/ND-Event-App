@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface signUpViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+- (IBAction)createAccount:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @end
