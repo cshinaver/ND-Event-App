@@ -21,6 +21,8 @@
     
     self.eventDescription.numberOfLines = 0;
     [self.eventDescription sizeToFit];
+    
+    [self.event.host fetch];
 
     self.eventTitle.text = self.event.eventTitle;
     
