@@ -18,6 +18,7 @@
 @dynamic  end;
 @dynamic host, invitees;
 @dynamic viewStatus;
+@dynamic checkedIn;
 
 + (void)load {
 	[self registerSubclass];
@@ -40,7 +41,7 @@
         }
     }];
 }
-- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(PFGeoPoint *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(PFGeoPoint *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus andCheckedIn:(NSMutableArray *)checkedIn
 {
     self = [super init];
     if(self) {
@@ -52,6 +53,7 @@
         self.host = host;
         self.invitees = invitees;
         self.viewStatus = viewStatus;
+        self.checkedIn = checkedIn;
     }
     return self;
 }
@@ -65,6 +67,19 @@
     
     return events;
     
+}
+
+-(BOOL)userIsCheckedIn:(User *)u
+{
+    int i;
+    for(i=0; i<self.checkedIn.count; i++)
+    {
+        if ([self.checkedIn[i] isEqual: u])
+        {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 @end

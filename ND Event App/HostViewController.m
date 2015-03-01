@@ -46,7 +46,7 @@
     // Memory to invitees
     self.invitees = [NSMutableArray new];
     self.e = [Event new];
-
+    self.e.checkedIn = [NSMutableArray new];
 }
 
 
@@ -79,7 +79,7 @@
     {
         MultipleSelectionTableViewController *mc = [segue destinationViewController];
         mc.hvc = self;
-        mc.items = [User getAllUsers];
+        mc.items = self.currentUser.friends;
     }
     
     else
