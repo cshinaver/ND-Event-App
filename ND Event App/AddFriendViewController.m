@@ -17,7 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.currentUser = [User currentUser];
+    self.currentUser = [User getUser:@"Charles"];
+    [User login:@"Charles" password: @"hi"];
     //hide popup label
     [self.popupLabel setHidden:YES];
     

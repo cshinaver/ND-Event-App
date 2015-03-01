@@ -29,8 +29,8 @@
     // Set delegate
     self.mapView.delegate = self;
     
+    self.currentUser = [User getUser:@"Charles"];
     
-    self.currentUser = [User currentUser];
 }
 
 - (void)viewDidAppear:(BOOL)animated

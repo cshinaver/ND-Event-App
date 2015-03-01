@@ -21,7 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.currentUser = [User currentUser];
+    self.currentUser = [User getUser:@"Mary"];
+    [User login:@"Mary" password: @"hi"];
     
     self.alert = [UIAlertController alertControllerWithTitle:@"Hooray!"
                                                 message:@"Your event has been created!"
