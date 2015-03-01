@@ -79,7 +79,7 @@
     {
         MultipleSelectionTableViewController *mc = [segue destinationViewController];
         mc.hvc = self;
-        mc.items = [User getAllUsers];
+        mc.items = self.currentUser.friends;
     }
     
     else
