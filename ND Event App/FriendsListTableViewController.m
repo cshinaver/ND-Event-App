@@ -31,6 +31,18 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        // do stuff with the user
+        NSLog(@"%@ logged in", currentUser.username);
+
+    } else {
+        [User login:@"Charles" password:@"hi"];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

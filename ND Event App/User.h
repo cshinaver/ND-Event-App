@@ -19,7 +19,7 @@
 @property NSString *phoneNumber;
 
 
-- (void)login:(NSString *)username password:(NSString *)password;
++ (void)login:(NSString *)username password:(NSString *)password;
 + (User *)currentUser;
 - (void)signUp;
 - (void)saveToDatabase;

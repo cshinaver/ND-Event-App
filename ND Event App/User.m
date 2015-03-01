@@ -26,7 +26,7 @@
     return (User *)[PFUser currentUser];
 }
 
-- (void)login:(NSString *)username password:(NSString *)password
++ (void)login:(NSString *)username password:(NSString *)password
 {
     [PFUser logInWithUsernameInBackground:username password:password
                                     block:^(PFUser *user, NSError *error) {
