@@ -159,5 +159,20 @@
     return 0;
 }
 
+/*- (BOOL)isCheckedInto:(Event *)e
+{
+    int i;
+    
+    for (i=0; i<e.checkedIn.count; i++)
+    {
+        if ([self isEqual: e.checkedIn[i]])
+        {
+            return 1;
+        }
+    }
+    
+    return 0;
+}*/
+
 @end
 

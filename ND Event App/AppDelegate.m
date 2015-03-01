@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import "User.h"
 #import "Event.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
