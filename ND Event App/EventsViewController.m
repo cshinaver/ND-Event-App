@@ -109,7 +109,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    //self.currentUser = [User currentUser];
+    self.currentUser = [User currentUser];
     
     self.nCheckedInLabel.text = [NSString stringWithFormat:@"Number of users checked in: %lu", (unsigned long)self.event.checkedIn.count];
 }
