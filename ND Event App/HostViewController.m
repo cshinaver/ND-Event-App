@@ -20,6 +20,15 @@
     
     self.currentUser = [User getUser:@"Mary"];
     [self.currentUser login:@"Mary" password: @"hi"];
+    
+    self.alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+                                                message:@"Your event has been created!"
+                                         preferredStyle:UIAlertControllerStyleAlert];
+    self.successAlert = [UIAlertAction actionWithTitle:@"OK"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction *action) {}];
+    
+    [self.alert addAction:self.successAlert];
 
     self.titleLabel.text = @"Host your own event";
     self.switchLabel.text = @"Private event";
@@ -121,6 +130,8 @@
     
     // Save event
     [self.e save];
+    
+    [self presentViewController:self.alert animated:YES completion:nil];
     
 }
 @end
