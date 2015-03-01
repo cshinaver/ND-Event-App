@@ -7,7 +7,6 @@
 //
 
 #import "HostViewController.h"
-#import "Event.h"
 #import "User.h"
 
 @interface HostViewController ()
@@ -122,15 +121,15 @@
     NSCharacterSet *finalCharacterSet = [workingSet copy];
     invitees = [self.friendsTextView.text componentsSeparatedByCharactersInSet: finalCharacterSet];
     
-    Event *e = [[Event alloc] initWithEventTitle:eventTitle andDescription:eventDescription andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:start andEndTime:end andHost:host andInvitees:invitees andViewStatus:viewStatus];
+    self.e = [[Event alloc] initWithEventTitle:eventTitle andDescription:eventDescription andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:start andEndTime:end andHost:host andInvitees:invitees andViewStatus:viewStatus];
     
     // Add event to user's events
-    [self.currentUser.events addObject:e];
+    [self.currentUser.events addObject:self.e];
     // Save user
-    [self.currentUser saveToDatabase];
+    [self.currentUser save];
     
     // Save event
-    [e saveToDatabase];
+    [self.e save];
     
     [self presentViewController:self.alert animated:YES completion:nil];
     

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Event.h"
 
 @interface HostViewController : UIViewController
 
@@ -16,6 +17,7 @@
 @property UIAlertController *alert;
 @property UIAlertAction *successAlert;
 
+@property (strong, retain) Event *e;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *switchLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventTitleLabel;
