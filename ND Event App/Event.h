@@ -16,8 +16,8 @@
 @interface Event : PFObject<PFSubclassing>
 
 enum {
-    PRIVATE,
-    PUBLIC
+    PUBLIC,
+    PRIVATE
 };
 
 +(NSString*)parseClassName;
