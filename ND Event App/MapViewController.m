@@ -13,7 +13,6 @@
 
 @interface MapViewController () {
     CLLocationManager *lm;
-    NSMutableArray *events;
 }
 
 @end
@@ -30,33 +29,7 @@
     // Set delegate
     self.mapView.delegate = self;
     
-    // Allocate space to array
-    events = [[NSMutableArray alloc] init];
-    
-    self.currentUser = [[User alloc] init];
-    self.currentUser.fullName = @"Charles Shinaver";
-    User *user1 = [[User alloc] init];
-    user1.username = @"user1";
-    user1.fullName = @"Joe Moran";
-    self.currentUser.friends = [[NSArray alloc] initWithObjects:user1, nil];
-    Event *event1 = [[Event alloc] init];
-    event1.eventTitle = @"Party in Dillon";
-    event1.eventDescription = @"A fun little get together in Dillon ;)";
-    event1.location = [PFGeoPoint geoPointWithLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733]];
-    event1.invitees = [[NSArray alloc] initWithObjects:self.currentUser.fullName, nil];
-    NSCalendar *calendar = [[NSCalendar alloc] init];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setYear: 2015];
-    [components setMonth: 5];
-    [components setDay: 22];
-    [components setHour:20];
-    [components setMinute:0];
-    event1.start = [calendar dateFromComponents:components];
-    [components setHour:23];
-    [components setMinute:0];
-    event1.end = [calendar dateFromComponents:components];
-    user1.events = [NSMutableArray arrayWithObjects: event1, nil];
-    self.currentUser.friends = [NSArray arrayWithObjects: user1, nil];
+    self.currentUser = [User currentUser];
     
 }
 
@@ -65,25 +38,14 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(41.700278, -86.230733), 3200, 3200);
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     
-    
-    
-    // Iterate through friends and events
-    for (User *friend in self.currentUser.friends)
-    {
-        for (Event *e in friend.events)
-        {
-            if ([e.invitees containsObject:self.currentUser.fullName])
-            {
-                [events addObject:e];
-            }
-        }
-        
-    }
+    NSArray *events = [self.currentUser getInvitedEvents];
+    events = [events arrayByAddingObjectsFromArray:[Event getAllPublicEvents]];
     
     // Create points for each event
     for (Event *e in events)
     {
-        [self createAnnotationWithCoordinate:[[[CLLocation alloc] initWithLatitude:e.location.latitude longitude:e.location.longitude] coordinate] andTitle:e.eventTitle andSubtitle:e.eventDescription];
+        [e.host fetch];
+        [self createAnnotationWithCoordinate:[[[CLLocation alloc] initWithLatitude:e.location.latitude longitude:e.location.longitude] coordinate] andTitle:e.eventTitle andSubtitle:e.host.username];
     }
 }
 

@@ -16,6 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.currentUser = [User currentUser];
+    //hide popup label
+    [self.popupLabel setHidden:YES];
+    
+    self.allUsers = [User getAllUsers];
+    
+    self.picker.dataSource = self;
+    self.picker.delegate = self;
     
     self.addFriendLabel.text = @"Enter username:";
     [self.addFriendButton setTitle:@"Add friend!" forState:UIControlStateNormal];
@@ -25,6 +34,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// The number of columns of data
+- (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// The number of rows of data
+- (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.allUsers.count;
+}
+
+// The data to return for the row and component (column) that's being passed in
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    User *u = self.allUsers[row];
+    return u.username;
 }
 
 /*
@@ -38,6 +66,27 @@
 */
 
 - (IBAction)addFriend:(id)sender {
+    
+    User *u = self.allUsers[[self.picker selectedRowInComponent:0]];
+    
+    if (![self.currentUser isFriendsWith: u])
+    {
+        [self.currentUser.friends addObject: u];
+    }
+    
+    [self.currentUser saveToDatabase];
+    
+    [self.popupLabel setHidden:NO];
+    
+    if ([self.currentUser isFriendsWith:u])
+    {
+        self.popupLabel.text = [[NSString alloc] initWithFormat:@"You are friends with %@", u.username];
+    }
+    
+    else
+    {
+        self.popupLabel.text = @"Failed.";
+    }
     
 }
 @end

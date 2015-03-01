@@ -7,6 +7,7 @@
 //
 
 #import "EventsViewController.h"
+#import <Parse/PFQuery.h>
 
 @interface EventsViewController ()
 
@@ -20,10 +21,12 @@
     
     self.eventDescription.numberOfLines = 0;
     [self.eventDescription sizeToFit];
+    
+    [self.event.host fetch];
 
     self.eventTitle.text = self.event.eventTitle;
     
-    self.host.text = [NSString stringWithFormat:@"Hosted by: %@", self.event.host.fullName];
+    self.host.text = [NSString stringWithFormat:@"Hosted by: %@", self.event.host.username];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"M/d/y h:mm a"];
@@ -36,7 +39,14 @@
     
     self.end.text = [NSString stringWithFormat:@"End: %@", prettydate];
     
-    self.location.text = [NSString stringWithFormat:@"Location: %@", self.event.location];
+    // Get location from database
+    NSArray *arr;
+    PFQuery *query = [PFQuery queryWithClassName:@"Location"];
+    [query whereKey:@"locationPoint" equalTo:self.event.location];
+    
+    arr = [query findObjects];
+    
+    self.location.text = [NSString stringWithFormat:@"Location: %@", arr[0][@"LocationName"]];
     
     self.eventDescription.text = [NSString stringWithFormat:@"Description: %@", self.event.eventDescription];
     

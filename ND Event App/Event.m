@@ -8,6 +8,7 @@
 
 #import "Event.h"
 #import <Parse/PFObject+Subclass.h>
+#import <Parse/PFQuery.h>
 
 @implementation Event
 @dynamic  eventTitle;
@@ -39,13 +40,13 @@
         }
     }];
 }
-- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(PFGeoPoint *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus
 {
     self = [super init];
     if(self) {
         self.eventTitle = eventTitle;
         self.eventDescription = eventDescription;
-        self.location = [PFGeoPoint geoPointWithLocation:location];
+        self.location = location;
         self.start = start;
         self.end = end;
         self.host = host;
@@ -53,6 +54,17 @@
         self.viewStatus = viewStatus;
     }
     return self;
+}
+
++ (NSArray *)getAllPublicEvents
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"viewStatus" equalTo:@0];
+    //[query includeKey:@"Invitees"];
+    NSArray *events =  [query findObjects];
+    
+    return events;
+    
 }
 
 @end

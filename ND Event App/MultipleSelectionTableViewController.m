@@ -1,46 +1,29 @@
 //
-//  AllEventsTableViewController.m
+//  MultipleSelectionTableViewController.m
 //  ND Event App
 //
-//  Created by Charles Shinaver on 2/27/15.
+//  Created by Charles Shinaver on 2/28/15.
 //  Copyright (c) 2015 MAC. All rights reserved.
 //
 
-#import "AllEventsTableViewController.h"
-#import "Event.h"
-#import "EventsViewController.h"
-#import <MapKit/MapKit.h>
+#import "MultipleSelectionTableViewController.h"
+#import "User.h"
+#import "Location.h"
 
-@interface AllEventsTableViewController ()
+@interface MultipleSelectionTableViewController ()
 
 @end
 
-@implementation AllEventsTableViewController
+@implementation MultipleSelectionTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-<<<<<<< HEAD
-	
-    // Dummy events
-    Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
-    Event *e2 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
-    Event *e3 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
-    
-    [e1 saveToDatabase];
-    [e2 saveToDatabase];
-    self.publicEvents = [[NSArray alloc] initWithObjects:e1, e2, e3, nil];
-=======
-    self.currentUser = [User currentUser];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.publicEvents = [Event getAllPublicEvents];
->>>>>>> master
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,33 +40,64 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.publicEvents.count;
+    return self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    Event *e = self.publicEvents[indexPath.row];
-    cell.textLabel.text = e.eventTitle;
+
+    // Invitees
+    if (tableView.allowsMultipleSelection == YES)
+    {
+        User *u = self.items[indexPath.row];
+        cell.textLabel.text = u.username;
+    }
+    else
+    {
+        // Location
+        Location *l = self.items[indexPath.row];
+        cell.textLabel.text = l[@"LocationName"];
+    }
+
+    
+    
     return cell;
 }
 
--(void) viewWillAppear:(BOOL)animated
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.currentUser = [User currentUser];
-    if (self.currentUser) {
-        // do stuff with the user
-        NSLog(@"%@ logged in", self.currentUser.username);
-        
-    } else {
-        [User login:@"Charles" password:@"hi"];
-    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UITableViewCell *tableCell = [tableView cellForRowAtIndexPath:indexPath];
+    BOOL isSelected = (tableCell.accessoryType == UITableViewCellAccessoryCheckmark);
     
-    self.publicEvents = [Event getAllPublicEvents];
+    if (isSelected) {
+        tableCell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    else {
+        tableCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+
+    // Invitees
+    if (tableView.allowsMultipleSelection == YES)
+    {
+        if (![self.hvc.invitees containsObject:self.items[indexPath.row]])
+        {
+            User *u = self.items[indexPath.row];
+            [self.hvc.invitees addObject:u.username];
+        }
+    }
+    else
+    {
+        // Location
+        Location *l = self.items[indexPath.row];
+        PFQuery *query = [PFQuery queryWithClassName:@"Location"];
+        [query whereKey:@"LocationName" equalTo:l[@"LocationName"]];
+        NSArray *arr = [query findObjects];
+        self.hvc.location = arr[0][@"locationPoint"];
+    }
 }
-
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -119,15 +133,14 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    EventsViewController *evc = [segue destinationViewController];
-    
-    Event *e = self.publicEvents[self.tableView.indexPathForSelectedRow.row];
-    evc.event = e;
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end

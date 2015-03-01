@@ -24,6 +24,7 @@
 #import "User.h"
 - (void)viewDidLoad {
     [super viewDidLoad];
+<<<<<<< HEAD
 
     //User *user2 = (User *)[User object];
     //user2.username = @"Mary";
@@ -61,6 +62,26 @@
 
 
 
+=======
+    
+    
+    //Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
+    //[e1 saveToDatabase];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (self.currentUser) {
+        // do stuff with the user
+        NSLog(@"%@ logged in", self.currentUser.username);
+
+    } else {
+        [User login:@"Charles" password:@"hi"];
+        self.currentUser = [User getUser:@"Charles"];
+    }
+}
+>>>>>>> master
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -135,8 +156,12 @@
     
     FriendsEventsTableViewController *fe = [segue destinationViewController];
     User *u = self.currentUser.friends[self.tableView.indexPathForSelectedRow.row];
-    fe.events = u.events;
- 
+    
+    fe.events = [self.currentUser getInvitedEventsFromFriend:u];
+    
+    
+    
+
 }
 
 

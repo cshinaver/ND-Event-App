@@ -16,12 +16,18 @@
 @property (retain) NSString *fullName;
 @property (retain) NSMutableArray *events;
 @property (retain) NSMutableArray *friends;
+@property NSString *phoneNumber;
 
+
++ (void)login:(NSString *)username password:(NSString *)password;
 + (User *)currentUser;
 - (void)signUp;
 - (void)logIn;
 - (void)saveToDatabase;
 + (User *)getUser:(NSString *)username;
 + (NSArray *)getAllUsers;
+- (BOOL)isFriendsWith:(User *)myFriend;
+- (NSArray *)getInvitedEvents;
+- (NSArray *)getInvitedEventsFromFriend:(User *)f;
 
 @end

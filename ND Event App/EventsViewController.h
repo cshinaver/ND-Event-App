@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "Location.h"
 
-@interface EventsViewController : UIViewController
+@interface EventsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property Event *event;
 
