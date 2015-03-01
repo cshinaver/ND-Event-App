@@ -1,14 +1,14 @@
 //
-//  PFLogInView.m
+//  loginView.m
 //  ND Event App
 //
-//  Created by Anna Jo McMahon on 2/28/15.
+//  Created by Anna Jo McMahon on 3/1/15.
 //  Copyright (c) 2015 MAC. All rights reserved.
 //
 
-#import "PFLogInView.h"
+#import "loginView.h"
 
-@implementation PFLogInView
+@implementation loginView
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -17,8 +17,5 @@
     // Drawing code
 }
 */
-
-
-
 
 @end

@@ -8,7 +8,7 @@
 
 #import "loginViewController.h"
 #import "User.h"
-@interface loginViewController ()
+@interface loginViewController ()<UIAlertViewDelegate>
 
 @end
 
@@ -58,21 +58,35 @@
 		[self performSegueWithIdentifier: @"segue.login" sender:self];
 	}
 }
-- (void)logIn
-{
+
+- (IBAction)loginButton:(UIButton *)sender {
+	
+	
 	[PFUser logInWithUsernameInBackground:@"myname" password:@"mypass"
-			block:^(PFUser *user, NSError *error) {
-					if (!error) {
-						// Hooray! Let them use the app now.
-					} else {
-					NSString *errorString = [error userInfo][@"error"];
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User name does not exist!" message:errorString delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Create Account",nil];
-					[alert show];
+				block:^(PFUser *user, NSError *error) {
+			if (!error) {
+			// Hooray! Let them use the app now.
+				PFUser *currentUser = [PFUser currentUser];
+				
+				
+			} else {
+				NSString *errorString = [error userInfo][@"error"];
+				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User name does not exist!" message:errorString delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Create Account",nil ];
+				//REPLACE NIL W/ func call
+											[alert show];
 										}
-									}];
+				}];
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
-
 
 
 
