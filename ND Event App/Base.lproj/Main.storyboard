@@ -360,7 +360,7 @@
                             <constraint firstItem="7Kp-Wp-P8S" firstAttribute="centerX" secondItem="wak-Tf-bj1" secondAttribute="centerX" id="xUE-iw-Vzl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add Friend" id="HUa-yr-tsS"/>
+                    <tabBarItem key="tabBarItem" title="Add Friend" image="plus-simple-7" id="HUa-yr-tsS"/>
                     <connections>
                         <outlet property="addFriendButton" destination="cgu-My-gqQ" id="0Gt-ml-V8I"/>
                         <outlet property="addFriendLabel" destination="qvw-R1-bsz" id="8vZ-Lm-HrG"/>
@@ -658,6 +658,7 @@
         <image name="book-simple-7" width="29" height="30"/>
         <image name="compass-point-7" width="30" height="30"/>
         <image name="list-simple-7" width="30" height="30"/>
+        <image name="plus-simple-7" width="30" height="30"/>
         <image name="write-simple-7" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
