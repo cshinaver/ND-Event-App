@@ -57,6 +57,19 @@
     return cell;
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    self.currentUser = [User currentUser];
+    if (self.currentUser) {
+        // do stuff with the user
+        NSLog(@"%@ logged in", self.currentUser.username);
+        
+    } else {
+        [User login:@"Charles" password:@"hi"];
+    }
+    
+    self.publicEvents = [Event getAllPublicEvents];
+}
 
 
 

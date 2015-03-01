@@ -69,7 +69,10 @@
     
     User *u = self.allUsers[[self.picker selectedRowInComponent:0]];
     
-    [self.currentUser.friends addObject: u];
+    if (![self.currentUser isFriendsWith: u])
+    {
+        [self.currentUser.friends addObject: u];
+    }
     
     [self.currentUser saveToDatabase];
     
@@ -77,7 +80,7 @@
     
     if ([self.currentUser isFriendsWith:u])
     {
-        self.popupLabel.text = [[NSString alloc] initWithFormat:@"You are now friends with %@", u.username];
+        self.popupLabel.text = [[NSString alloc] initWithFormat:@"You are friends with %@", u.username];
     }
     
     else
