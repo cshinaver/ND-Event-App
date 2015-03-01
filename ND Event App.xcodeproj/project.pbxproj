@@ -30,6 +30,9 @@
 		95F965131AA18BD1007D4CF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F965121AA18BD1007D4CF8 /* SystemConfiguration.framework */; };
 		95F965151AA18BD9007D4CF8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F965141AA18BD9007D4CF8 /* libz.dylib */; };
 		95F965171AA18BE7007D4CF8 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F965161AA18BE7007D4CF8 /* libsqlite3.dylib */; };
+		95F965891AA34E1C007D4CF8 /* Dome.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F965881AA34E1C007D4CF8 /* Dome.png */; };
+		95F9658E1AA34F1D007D4CF8 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F9658D1AA34F1D007D4CF8 /* loginViewController.m */; };
+		95F965911AA35063007D4CF8 /* signUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F965901AA35063007D4CF8 /* signUpViewController.m */; };
 		E92ACABA1AA2C89A00C62329 /* MultipleSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92ACAB91AA2C89A00C62329 /* MultipleSelectionTableViewController.m */; };
 		E92ACABD1AA2D39E00C62329 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = E92ACABC1AA2D39E00C62329 /* Location.m */; };
 		E940F0421AA1A50B00A7B245 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E940F0411AA1A50B00A7B245 /* MapKit.framework */; };
@@ -85,6 +88,11 @@
 		95F965121AA18BD1007D4CF8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		95F965141AA18BD9007D4CF8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		95F965161AA18BE7007D4CF8 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		95F965881AA34E1C007D4CF8 /* Dome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dome.png; sourceTree = "<group>"; };
+		95F9658C1AA34F1D007D4CF8 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
+		95F9658D1AA34F1D007D4CF8 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		95F9658F1AA35063007D4CF8 /* signUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signUpViewController.h; sourceTree = "<group>"; };
+		95F965901AA35063007D4CF8 /* signUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signUpViewController.m; sourceTree = "<group>"; };
 		E92ACAB81AA2C89A00C62329 /* MultipleSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleSelectionTableViewController.h; sourceTree = "<group>"; };
 		E92ACAB91AA2C89A00C62329 /* MultipleSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleSelectionTableViewController.m; sourceTree = "<group>"; };
 		E92ACABB1AA2D39E00C62329 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
@@ -154,8 +162,10 @@
 		1CE9B27F1AA1743900160D0B /* ND Event App */ = {
 			isa = PBXGroup;
 			children = (
+				95F9658B1AA34ECF007D4CF8 /* login */,
 				1CE9B2841AA1743900160D0B /* AppDelegate.h */,
 				1CE9B2851AA1743900160D0B /* AppDelegate.m */,
+				95F965881AA34E1C007D4CF8 /* Dome.png */,
 				1CE9B28A1AA1743900160D0B /* Main.storyboard */,
 				E92ACAB81AA2C89A00C62329 /* MultipleSelectionTableViewController.h */,
 				E92ACAB91AA2C89A00C62329 /* MultipleSelectionTableViewController.m */,
@@ -232,6 +242,17 @@
 				95F965001AA18B5C007D4CF8 /* Parse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95F9658B1AA34ECF007D4CF8 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				95F9658F1AA35063007D4CF8 /* signUpViewController.h */,
+				95F965901AA35063007D4CF8 /* signUpViewController.m */,
+				95F9658C1AA34F1D007D4CF8 /* loginViewController.h */,
+				95F9658D1AA34F1D007D4CF8 /* loginViewController.m */,
+			);
+			name = login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F965891AA34E1C007D4CF8 /* Dome.png in Resources */,
 				1CE9B28C1AA1743900160D0B /* Main.storyboard in Resources */,
 				1CE9B2911AA1743900160D0B /* LaunchScreen.xib in Resources */,
 				1CE9B28E1AA1743900160D0B /* Images.xcassets in Resources */,
@@ -335,10 +357,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CE9B2AC1AA195CE00160D0B /* User.m in Sources */,
+				95F9658E1AA34F1D007D4CF8 /* loginViewController.m in Sources */,
 				E92ACABD1AA2D39E00C62329 /* Location.m in Sources */,
 				E9B347FE1AA1937900130A43 /* Event.m in Sources */,
 				E98FAE251AA1808800E119C4 /* HostViewController.m in Sources */,
 				1CE9B2861AA1743900160D0B /* AppDelegate.m in Sources */,
+				95F965911AA35063007D4CF8 /* signUpViewController.m in Sources */,
 				E98FAE281AA1809C00E119C4 /* AllEventsTableViewController.m in Sources */,
 				1C95C08A1AA23CF300B59EEA /* AddFriendViewController.m in Sources */,
 				E92ACABA1AA2C89A00C62329 /* MultipleSelectionTableViewController.m in Sources */,
