@@ -24,8 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.currentUser = [User getUser:@"Charles"];
-    
     //Event *e1 = [[Event alloc] initWithEventTitle:@"Kitteh Day" andDescription:@"All the kittehs" andLocation: [[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:[NSDate date] andEndTime:[NSDate date] andHost:[User getUser:@"Charles"] andInvitees:[NSArray arrayWithObjects:[User getUser:@"Mary"], nil] andViewStatus:PRIVATE];
     //[e1 saveToDatabase];
     
@@ -33,10 +31,10 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
+    self.currentUser = [User currentUser];
+    if (self.currentUser) {
         // do stuff with the user
-        NSLog(@"%@ logged in", currentUser.username);
+        NSLog(@"%@ logged in", self.currentUser.username);
 
     } else {
         [User login:@"Charles" password:@"hi"];
