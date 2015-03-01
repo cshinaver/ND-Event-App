@@ -21,6 +21,7 @@
     [super viewDidLoad];
     
     self.currentUser = [User currentUser];
+    self.currentUser = [User getUser:[User currentUser].username];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
