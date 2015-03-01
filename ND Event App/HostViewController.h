@@ -13,6 +13,9 @@
 
 @property User *currentUser;
 
+@property UIAlertController *alert;
+@property UIAlertAction *successAlert;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *switchLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventTitleLabel;
