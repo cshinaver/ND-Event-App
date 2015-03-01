@@ -84,14 +84,18 @@
     {
         if (![self.hvc.invitees containsObject:self.items[indexPath.row]])
         {
-            [self.hvc.invitees addObject:self.items[indexPath.row]];
+            User *u = self.items[indexPath.row];
+            [self.hvc.invitees addObject:u.username];
         }
     }
     else
     {
         // Location
         Location *l = self.items[indexPath.row];
-        self.hvc.location = [[CLLocation alloc] initWithLatitude:[l[@"Latitute"] doubleValue] longitude:[l[@"longitude"] doubleValue]];
+        PFQuery *query = [PFQuery queryWithClassName:@"Location"];
+        [query whereKey:@"LocationName" equalTo:l[@"LocationName"]];
+        NSArray *arr = [query findObjects];
+        self.hvc.location = arr[0][@"locationPoint"];
     }
 }
 

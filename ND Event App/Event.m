@@ -40,13 +40,13 @@
         }
     }];
 }
-- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(PFGeoPoint *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus
 {
     self = [super init];
     if(self) {
         self.eventTitle = eventTitle;
         self.eventDescription = eventDescription;
-        self.location = [PFGeoPoint geoPointWithLocation:location];
+        self.location = location;
         self.start = start;
         self.end = end;
         self.host = host;

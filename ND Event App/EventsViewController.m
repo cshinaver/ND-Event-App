@@ -40,11 +40,11 @@
     // Get location from database
     NSArray *arr;
     PFQuery *query = [PFQuery queryWithClassName:@"Location"];
-    [query whereKey:@"Latitute" equalTo:[NSString stringWithFormat:@"%lf", self.event.location.latitude]];
-    [query whereKey:@"longitude" equalTo:[NSString stringWithFormat:@"%lf", self.event.location.longitude]];
+    [query whereKey:@"locationPoint" equalTo:self.event.location];
+    
     arr = [query findObjects];
-    Location *l = arr[0];
-    self.location.text = [NSString stringWithFormat:@"Location: %@", l[@"LocationName"]];
+    
+    self.location.text = [NSString stringWithFormat:@"Location: %@", arr[0][@"LocationName"]];
     
     self.eventDescription.text = [NSString stringWithFormat:@"Description: %@", self.event.eventDescription];
     

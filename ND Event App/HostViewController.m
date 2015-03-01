@@ -53,6 +53,7 @@
     self.invitees = [NSMutableArray new];
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -139,8 +140,17 @@
     NSCharacterSet *finalCharacterSet = [workingSet copy];
     //invitees = [self.friendsTextView.text componentsSeparatedByCharactersInSet: finalCharacterSet];
     
-    
-    self.e = [[Event alloc] initWithEventTitle:eventTitle andDescription:eventDescription andLocation:self.location andStartTime:start andEndTime:end andHost:host andInvitees:self.invitees andViewStatus:viewStatus];
+    //self.e = [[Event alloc] initWithEventTitle:eventTitle andDescription:eventDescription andLocation:self.location andStartTime:start andEndTime:end andHost:host andInvitees:self.invitees andViewStatus:viewStatus];
+    self.e = (Event *)[Event object];
+    self.e.eventTitle = eventTitle;
+    self.e.eventDescription = eventDescription;
+    self.e.location = self.location;
+    self.e.start = start;
+    self.e.end = end;
+    self.e.host = host;
+    self.e.invitees = [NSMutableArray new];
+    [self.e.invitees addObjectsFromArray:self.invitees];
+    self.e.viewStatus = viewStatus;
     
     // Add event to user's events
     [self.currentUser.events addObject:self.e];
@@ -151,6 +161,10 @@
     [self.e save];
     
     [self presentViewController:self.alert animated:YES completion:nil];
+    
+    // Clear stuff
+    self.invitees = [NSMutableArray new];
+    self.location = [PFGeoPoint new];
     
 }
 @end

@@ -27,10 +27,10 @@ enum {
 @property NSDate *start;
 @property NSDate *end;
 @property User *host;
-@property NSArray *invitees;
+@property NSMutableArray *invitees;
 @property int viewStatus;
 
-- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(CLLocation *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus;
+- (id)initWithEventTitle:(NSString *)eventTitle andDescription:(NSString *)eventDescription andLocation:(PFGeoPoint *)location andStartTime:(NSDate *)start andEndTime:(NSDate *)end andHost:(User *)host andInvitees:(NSArray *)invitees andViewStatus:(int)viewStatus;
 
 -(void)saveToDatabase;
 +(NSArray *)getAllPublicEvents;

@@ -72,8 +72,11 @@
 
 - (NSArray *)getInvitedEventsFromFriend:(User *)f
 {
-    NSArray *arr = [self getInvitedEvents];
     NSMutableArray *events = [NSMutableArray new];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"host" equalTo:[User getUser:f.username]];
+    NSArray *arr = [query findObjects];
     for (Event *e in arr)
     {
         if ([e.invitees containsObject:self.username])

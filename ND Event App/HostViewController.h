@@ -47,7 +47,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *endMinuteInput;
 
 @property NSMutableArray *invitees;
-@property CLLocation *location;
+@property PFGeoPoint *location;
 
 
 
