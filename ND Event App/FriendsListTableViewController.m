@@ -12,15 +12,16 @@
 #import "FriendsEventsTableViewController.h"
 #import <Parse/Parse.h>
 #import <Parse/PFSubclassing.h>
-
+#import "AddFriendViewController.h"
 #import <Parse/PFObject.h>
 
-@interface FriendsListTableViewController ()
+@interface FriendsListTableViewController ()< UIAlertViewDelegate>
 
 @end
 
 @implementation FriendsListTableViewController
 
+#import "User.h"
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -35,21 +36,31 @@
     //user3.password = @"banana";
     //user3.email = @"fshinaver@gmail.com";
     //[user3 signUp];
-    
-    User *user1 = (User *)[User object];
-    self.currentUser = user1;
-    self.currentUser.username = @"Charles";
-    self.currentUser.password = @"banana";
-    self.currentUser.email = @"gshinaver@gmail.com";
-    
-	PFQuery *query = [User query];
-    self.currentUser.friends = [query findObjects];
-    PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
-    self.currentUser.events = [query findObjects];
+	
+	
 
-    [self.currentUser signUp];
+	// try to make a current user
+//    User *user1 = (User *)[User object];
+//    self.currentUser = user1;
+//    self.currentUser.username = @"Charles";
+//    self.currentUser.password = @"banana";
+//    self.currentUser.email = @"gshinaver@gmail.com";
+//	
+//	[self logIn];
+//
+//	PFQuery *query = [User query];
+//    self.currentUser.friends = [query findObjects];
+//    PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
+//    self.currentUser.events = [query findObjects];
+
+  //  [self.currentUser signUp];
     
 }
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

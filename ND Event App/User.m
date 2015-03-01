@@ -45,21 +45,46 @@
         if (!error) {
             // Hooray! Let them use the app now.
         } else {
-            NSString *errorString = [error userInfo][@"error"];
-            // Show the errorString somewhere and let the user try again.
-            NSLog(@"%@", errorString);
+			NSString *errorString = [error userInfo][@"error"];
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:errorString delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"another option", nil];
+			
+			[alert show];
         }
     }];
     
 }
+
+
+//	if([User getUser:self.usernameTextView.text] == nil){
+//		NSLog(@"need to sign up");
+//		//send alert to sign in or to dismiss
+//	}
+//	else{
+//		User *currentUser = [User getUser:self.usernameTextView.text];
+//		
+//		if(currentUser.password != self.passwordTextView.text){
+//			NSLog(@"WRONG");
+//			// send alert wrong password
+//		}
+//		else{
+//			NSLog(@"Login accepted");
+//			
+//		}
+//	}
+
+	
+	
+
 
 + (User *)getUser:(NSString *)username
 {
     PFQuery *query = [User query];
     [query whereKey:@"username" equalTo:username];
     NSArray *users = [query findObjects];
-    
-    return users[0];
+    if(users.count ==0 )
+		return nil;
+	else
+		return users[0];
 
     
 }

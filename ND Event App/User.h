@@ -19,6 +19,7 @@
 
 + (User *)currentUser;
 - (void)signUp;
+- (void)logIn;
 - (void)saveToDatabase;
 + (User *)getUser:(NSString *)username;
 + (NSArray *)getAllUsers;

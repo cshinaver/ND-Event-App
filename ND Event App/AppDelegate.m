@@ -30,43 +30,7 @@
     
     [User registerSubclass];
     [Event registerSubclass];
-	
-	// make a "create user account/login page" that this goes to and runs all these 
-	User *user1 = (User *)[User object];
-	user1.username = @"wendy";
-	user1.password = @"irish";
-	user1.email = @"anna@nd.edu";
-	
-	PFQuery *query = [PFQuery queryWithClassName:@"User"];
-	[query whereKey:@"username" equalTo:@"wendy"];
-	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-  if (!error) {
-	  // The find succeeded.
-	  NSLog(@"Successfully retrieved ");
-	  // Do something with the found objects
-	    [user1 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-		
-		}];
-	  [User logInWithUsernameInBackground:@"myname" password:@"mypass"
-									  block:^(PFUser *user, NSError *error) {
-										  if (user) {
-											  // Do stuff after successful login.
-										  } else {
-											  // The login failed. Check error to see why.
-										  }
-	}];
-	  
-	  for (PFObject *object in objects) {
-		  NSLog(@"%@", object.objectId);
-	  }
-  } else {
-	  // Log details of the failure
-	  [user1 signUp];
-	  NSLog(@"Error: %@ %@", error, [error userInfo]);
-  }
-	}];
-	
-    return YES;
+	return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
