@@ -10,7 +10,7 @@
 #import "User.h"
 #import "Event.h"
 
-@interface HostViewController : UIViewController
+@interface HostViewController : UIViewController 
 
 @property User *currentUser;
 
@@ -45,6 +45,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *endYearInput;
 @property (weak, nonatomic) IBOutlet UITextField *endHourInput;
 @property (weak, nonatomic) IBOutlet UITextField *endMinuteInput;
+
+@property NSMutableArray *invitees;
+@property CLLocation *location;
 
 
 

@@ -8,6 +8,8 @@
 
 #import "HostViewController.h"
 #import "User.h"
+#import "MultipleSelectionTableViewController.h"
+#import <Parse/PFQuery.h>
 
 @interface HostViewController ()
 
@@ -46,6 +48,9 @@
     self.friendsTextView.layer.borderWidth = 1.0;
     self.friendsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     [self.createButton setTitle:@"Create event" forState:UIControlStateNormal];
+    
+    // Memory to invitees
+    self.invitees = [NSMutableArray new];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,15 +63,28 @@
     [self.view endEditing:YES];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    MultipleSelectionTableViewController *mc = [segue destinationViewController];
+    mc.hvc = self;
+    
+    // Decide between locations or invitees
+    if ([mc.title isEqualToString:@"Location"])
+    {
+        PFQuery *query = [PFQuery queryWithClassName:@"Location"];
+        mc.items = [query findObjects];
+    }
+    else
+    {
+        mc.items = [User getAllUsers];
+    }
+    
 }
-*/
 
 - (IBAction)createEvent:(id)sender {
     
@@ -119,9 +137,10 @@
     NSMutableCharacterSet *workingSet = [[NSMutableCharacterSet alloc] init];
     [workingSet addCharactersInString:@" ,\n"];
     NSCharacterSet *finalCharacterSet = [workingSet copy];
-    invitees = [self.friendsTextView.text componentsSeparatedByCharactersInSet: finalCharacterSet];
+    //invitees = [self.friendsTextView.text componentsSeparatedByCharactersInSet: finalCharacterSet];
     
-    self.e = [[Event alloc] initWithEventTitle:eventTitle andDescription:eventDescription andLocation:[[CLLocation alloc]initWithLatitude:41.700278 longitude:-86.230733] andStartTime:start andEndTime:end andHost:host andInvitees:invitees andViewStatus:viewStatus];
+    
+    self.e = [[Event alloc] initWithEventTitle:eventTitle andDescription:eventDescription andLocation:self.location andStartTime:start andEndTime:end andHost:host andInvitees:self.invitees andViewStatus:viewStatus];
     
     // Add event to user's events
     [self.currentUser.events addObject:self.e];
