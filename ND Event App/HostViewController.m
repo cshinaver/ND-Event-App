@@ -9,6 +9,7 @@
 #import "HostViewController.h"
 #import "User.h"
 #import "MultipleSelectionTableViewController.h"
+#import "DatePickerViewController.h"
 #import <Parse/PFQuery.h>
 
 @interface HostViewController ()
@@ -23,7 +24,7 @@
     self.currentUser = [User getUser:@"Mary"];
     [self.currentUser login:@"Mary" password: @"hi"];
     
-    self.alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+    self.alert = [UIAlertController alertControllerWithTitle:@"Hooray!"
                                                 message:@"Your event has been created!"
                                          preferredStyle:UIAlertControllerStyleAlert];
     self.successAlert = [UIAlertAction actionWithTitle:@"OK"
@@ -32,25 +33,21 @@
     
     [self.alert addAction:self.successAlert];
 
-    self.titleLabel.text = @"Host your own event";
     self.switchLabel.text = @"Private event";
     [self.theSwitch setOn:NO];
     self.eventTitleLabel.text = @"Event title";
     self.eventDescriptionLabel.text = @"Description";
     self.locationLabel.text = @"Location";
-    self.startDateLabel.text = @"Start date";
-    self.endDateLabel.text = @"End date";
-    self.startTimeLabel.text = @"Time";
-    self.endTimeLabel.text = @"Time";
+    self.startDateLabel.text = @"When";
     self.friendsLabel.text = @"Friends";
     self.descriptionTextView.layer.borderWidth = 1.0;
     self.descriptionTextView.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.friendsTextView.layer.borderWidth = 1.0;
-    self.friendsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     [self.createButton setTitle:@"Create event" forState:UIControlStateNormal];
     
     // Memory to invitees
     self.invitees = [NSMutableArray new];
+    self.e = [Event new];
+
 }
 
 
@@ -71,31 +68,46 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    MultipleSelectionTableViewController *mc = [segue destinationViewController];
-    mc.hvc = self;
-    
-    // Decide between locations or invitees
-    if ([mc.title isEqualToString:@"Location"])
+    if (self.destination == 1)
     {
+        MultipleSelectionTableViewController *mc = [segue destinationViewController];
+        mc.hvc = self;
         PFQuery *query = [PFQuery queryWithClassName:@"Location"];
         mc.items = [query findObjects];
     }
-    else
+    
+    else if (self.destination == 2)
     {
+        MultipleSelectionTableViewController *mc = [segue destinationViewController];
+        mc.hvc = self;
         mc.items = [User getAllUsers];
     }
     
+    else
+    {
+        DatePickerViewController *dp = [segue destinationViewController];
+        dp.delegate = self;
+    }
+    
+}
+
+- (IBAction)locationButton:(id)sender {
+    self.destination = 1;
+}
+
+- (IBAction)dateButton:(id)sender {
+    self.destination = 3;
+}
+
+- (IBAction)inviteesButton:(id)sender {
+    self.destination = 2;
 }
 
 - (IBAction)createEvent:(id)sender {
     
     NSString *eventTitle;
     NSString *eventDescription;
-    PFGeoPoint *location;
-    NSDate *start;
-    NSDate *end;
     User *host;
-    NSArray *invitees;
     int viewStatus;
     
     if (self.theSwitch.isOn)
@@ -114,39 +126,9 @@
 
     host = self.currentUser;
     
-    NSCalendar *calendar1 = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSCalendar *calendar2 = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components1 = [[NSDateComponents alloc] init];
-    NSDateComponents *components2 = [[NSDateComponents alloc] init];
-    
-    [components1 setYear: [self.startYearInput.text intValue]];
-    [components1 setMonth: [self.startMonthInput.text intValue]];
-    [components1 setDay: [self.startDayInput.text intValue]];
-    [components1 setHour: [self.startHourInput.text intValue]];
-    [components1 setMinute: [self.startMinuteInput.text intValue]];
-    
-    start = [calendar1 dateFromComponents:components1];
-    
-    [components2 setYear: [self.endYearInput.text intValue]];
-    [components2 setMonth: [self.endMonthInput.text intValue]];
-    [components2 setDay: [self.endDayInput.text intValue]];
-    [components2 setHour: [self.endHourInput.text intValue]];
-    [components2 setMinute:[self.endMinuteInput.text intValue]];
-    
-    end = [calendar2 dateFromComponents:components2];
-    
-    NSMutableCharacterSet *workingSet = [[NSMutableCharacterSet alloc] init];
-    [workingSet addCharactersInString:@" ,\n"];
-    NSCharacterSet *finalCharacterSet = [workingSet copy];
-    //invitees = [self.friendsTextView.text componentsSeparatedByCharactersInSet: finalCharacterSet];
-    
-    //self.e = [[Event alloc] initWithEventTitle:eventTitle andDescription:eventDescription andLocation:self.location andStartTime:start andEndTime:end andHost:host andInvitees:self.invitees andViewStatus:viewStatus];
-    self.e = (Event *)[Event object];
     self.e.eventTitle = eventTitle;
     self.e.eventDescription = eventDescription;
     self.e.location = self.location;
-    self.e.start = start;
-    self.e.end = end;
     self.e.host = host;
     self.e.invitees = [NSMutableArray new];
     [self.e.invitees addObjectsFromArray:self.invitees];
@@ -165,7 +147,15 @@
     // Clear stuff
     self.invitees = [NSMutableArray new];
     self.location = [PFGeoPoint new];
+
     [self POSTRequest];
+    
+}
+
+-(void)sendDataToA:(NSDate *)start andEnd:(NSDate *)end
+{
+    self.e.start = start;
+    self.e.end = end;
     
 }
 
@@ -182,7 +172,7 @@
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:postData];
     
-    NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
+    [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
 @end

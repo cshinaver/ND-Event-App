@@ -16,41 +16,32 @@
 
 @property UIAlertController *alert;
 @property UIAlertAction *successAlert;
+@property int destination; //1 for location, 2 for invitees, 3 for date/time
 
 @property (strong, retain) Event *e;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *switchLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *friendsLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *theSwitch;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
-@property (weak, nonatomic) IBOutlet UITextView *friendsTextView;
+
 @property (weak, nonatomic) IBOutlet UIButton *createButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *eventTitleInput;
-@property (weak, nonatomic) IBOutlet UITextField *locationInput;
-@property (weak, nonatomic) IBOutlet UITextField *startMonthInput;
-@property (weak, nonatomic) IBOutlet UITextField *startDayInput;
-@property (weak, nonatomic) IBOutlet UITextField *startYearInput;
-@property (weak, nonatomic) IBOutlet UITextField *startHourInput;
-@property (weak, nonatomic) IBOutlet UITextField *startMinuteInput;
-@property (weak, nonatomic) IBOutlet UITextField *endMonthInput;
-@property (weak, nonatomic) IBOutlet UITextField *endDayInput;
-@property (weak, nonatomic) IBOutlet UITextField *endYearInput;
-@property (weak, nonatomic) IBOutlet UITextField *endHourInput;
-@property (weak, nonatomic) IBOutlet UITextField *endMinuteInput;
+
 
 @property NSMutableArray *invitees;
 @property PFGeoPoint *location;
 
 
 
+- (IBAction)locationButton:(id)sender;
+- (IBAction)dateButton:(id)sender;
+- (IBAction)inviteesButton:(id)sender;
 
 
 - (IBAction)createEvent:(id)sender;

@@ -17,6 +17,7 @@
 		1CE9B2AA1AA1898400160D0B /* FriendsEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2A91AA1898400160D0B /* FriendsEventsTableViewController.m */; };
 		1CE9B2AC1AA195CE00160D0B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2AB1AA195CE00160D0B /* User.m */; };
 		1CE9B2AF1AA1A49000160D0B /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9B2AE1AA1A49000160D0B /* EventsViewController.m */; };
+		1CFC96A61AA31DC000E7B419 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC96A51AA31DC000E7B419 /* DatePickerViewController.m */; };
 		95F965011AA18B5C007D4CF8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F964FF1AA18B5C007D4CF8 /* Bolts.framework */; };
 		95F965021AA18B5C007D4CF8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F965001AA18B5C007D4CF8 /* Parse.framework */; };
 		95F965051AA18B91007D4CF8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F965041AA18B91007D4CF8 /* AudioToolbox.framework */; };
@@ -70,6 +71,8 @@
 		1CE9B2AB1AA195CE00160D0B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		1CE9B2AD1AA1A49000160D0B /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
 		1CE9B2AE1AA1A49000160D0B /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
+		1CFC96A41AA31DC000E7B419 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
+		1CFC96A51AA31DC000E7B419 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 		95F964FF1AA18B5C007D4CF8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		95F965001AA18B5C007D4CF8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		95F965041AA18B91007D4CF8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -168,6 +171,8 @@
 				E98FAE271AA1809C00E119C4 /* AllEventsTableViewController.m */,
 				E98FAE231AA1808800E119C4 /* HostViewController.h */,
 				E98FAE241AA1808800E119C4 /* HostViewController.m */,
+				1CFC96A41AA31DC000E7B419 /* DatePickerViewController.h */,
+				1CFC96A51AA31DC000E7B419 /* DatePickerViewController.m */,
 				E98FAE201AA1807D00E119C4 /* MapViewController.h */,
 				E98FAE211AA1807D00E119C4 /* MapViewController.m */,
 				E98FAE1D1AA1800B00E119C4 /* FriendsListTableViewController.h */,
@@ -337,6 +342,7 @@
 				E98FAE281AA1809C00E119C4 /* AllEventsTableViewController.m in Sources */,
 				1C95C08A1AA23CF300B59EEA /* AddFriendViewController.m in Sources */,
 				E92ACABA1AA2C89A00C62329 /* MultipleSelectionTableViewController.m in Sources */,
+				1CFC96A61AA31DC000E7B419 /* DatePickerViewController.m in Sources */,
 				1CE9B2AA1AA1898400160D0B /* FriendsEventsTableViewController.m in Sources */,
 				E98FAE221AA1807D00E119C4 /* MapViewController.m in Sources */,
 				E98FAE1F1AA1800B00E119C4 /* FriendsListTableViewController.m in Sources */,
