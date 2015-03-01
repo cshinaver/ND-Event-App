@@ -10,7 +10,7 @@
 #import "User.h"
 #import "Event.h"
 
-@interface HostViewController : UIViewController 
+@interface HostViewController : UIViewController <NSURLConnectionDelegate>
 
 @property User *currentUser;
 

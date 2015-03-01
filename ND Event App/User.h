@@ -16,6 +16,7 @@
 @property (retain) NSString *fullName;
 @property (retain) NSMutableArray *events;
 @property (retain) NSMutableArray *friends;
+@property NSString *phoneNumber;
 
 
 - (void)login:(NSString *)username password:(NSString *)password;
